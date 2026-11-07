@@ -1,0 +1,63 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: clamp(var(--space-6), 4vw, var(--space-12));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.prompt {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+.emailRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.email {
+  min-width: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 0 1px;
+  transition:
+    background-size var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
+}
+
+.email:hover {
+  color: var(--color-accent);
+  background-size: 100% 1px;
+}
+
+.copy {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.copy:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-muted);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}

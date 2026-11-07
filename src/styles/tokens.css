@@ -1,0 +1,95 @@
+/*
+ * Design tokens.
+ * Palette is a warm, muted "minimalist" set: off-white, greige, slate, cocoa, bronze.
+ * Components only reference semantic tokens (--color-*), never raw swatches.
+ */
+
+:root {
+  /* Raw swatches */
+  --swatch-snow: #edeae5;
+  --swatch-reflection: #d3d5d3;
+  --swatch-crushed-ice: #d6d3cc;
+  --swatch-beige: #d6c7b9;
+  --swatch-french-gray: #c2c0bb;
+  --swatch-krypton: #b8c0c3;
+  --swatch-anew: #bfb6aa;
+  --swatch-magnetic: #b4b5af;
+  --swatch-morris: #ada193;
+  --swatch-elephant: #988f85;
+  --swatch-slate: #6f7c85;
+  --swatch-cocoa: #8a6b5f;
+  --swatch-folkstone: #6d6562;
+  --swatch-bronze: #54504a;
+
+  /* Typography */
+  --font-sans: 'Geist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --text-xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  --text-display: clamp(3rem, 1.8rem + 6vw, 6.5rem);
+
+  /* Spacing (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-section: clamp(5rem, 3rem + 8vw, 9rem);
+
+  /* Layout */
+  --content-width: 72rem;
+  --gutter: clamp(1rem, 0.5rem + 3vw, 2.5rem);
+  --header-height: 4rem;
+
+  /* Shape */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-full: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration-base: 280ms;
+  --duration-slow: 600ms;
+}
+
+/* Light (default) */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-bg: var(--swatch-snow);
+  --color-surface: #f6f4f0;
+  --color-surface-raised: #fbfaf8;
+  --color-border: #d9d4cc;
+  --color-text: #2b2825;
+  --color-text-muted: var(--swatch-folkstone);
+  --color-accent: var(--swatch-cocoa);
+  --color-accent-contrast: #fbfaf8;
+  --color-focus: var(--swatch-slate);
+  --color-backdrop: rgb(43 40 37 / 0.35);
+  --shadow-card: 0 1px 2px rgb(43 40 37 / 0.04), 0 8px 24px -12px rgb(43 40 37 / 0.18);
+  --shadow-overlay: 0 24px 64px -16px rgb(43 40 37 / 0.35);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #1c1a18;
+  --color-surface: #24221f;
+  --color-surface-raised: #2c2926;
+  --color-border: #3a3632;
+  --color-text: #ece8e2;
+  --color-text-muted: var(--swatch-morris);
+  --color-accent: #c9a796;
+  --color-accent-contrast: #1c1a18;
+  --color-focus: var(--swatch-krypton);
+  --color-backdrop: rgb(0 0 0 / 0.55);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-overlay: 0 24px 64px -16px rgb(0 0 0 / 0.7);
+}
