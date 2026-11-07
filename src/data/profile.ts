@@ -1,8 +1,8 @@
 import type { Profile } from '@/types/content'
 
-// TODO: replace placeholder copy with your own.
+// TODO: email and about copy are still placeholders.
 export const profile: Profile = {
-  name: 'Tan',
+  name: 'Tan Thai',
   role: 'Software Engineer',
   tagline: 'I build calm, reliable software that people enjoy using.',
   taglineDetail:
@@ -16,8 +16,8 @@ export const profile: Profile = {
   email: 'hello@example.com',
   resumeUrl: '/resume.pdf',
   socials: [
-    { label: 'GitHub', href: 'https://github.com/' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
+    { label: 'GitHub', href: 'https://github.com/tanthai028' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tanthai028' },
   ],
   about: [
     'I care about the details that make software feel effortless: fast pages, clear interfaces, and code the next engineer can read.',
