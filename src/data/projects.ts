@@ -211,12 +211,6 @@ export const projects: Project[] = [
         width: 1353,
         height: 664,
       },
-      {
-        src: '/projects/ytbookmarks-demo.webp',
-        alt: 'The full YouTube player with YTBookmarks: five bookmarks in the sidebar and their pins on the timeline',
-        width: 1353,
-        height: 774,
-      },
     ],
     problem:
       "I'd remember a moment in a long lecture, then scrub around trying to find it again. YouTube chapters only exist if the creator adds them.",
