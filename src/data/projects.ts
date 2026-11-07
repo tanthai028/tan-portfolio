@@ -100,8 +100,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'wayfarer',
-    title: 'Wayfarer',
+    slug: 'trailcards',
+    title: 'Trailcards',
     kind: 'Mobile web app',
     summary: 'A study app that works like a scrolling feed, with reviews spaced out over weeks.',
     date: 'Oct 2026',
@@ -110,8 +110,8 @@ export const projects: Project[] = [
     status: 'live',
     images: [
       {
-        src: '/projects/wayfarer-feed.webp',
-        alt: 'A Wayfarer study card on a phone: a short note on why the sky is blue, then a four-choice question',
+        src: '/projects/trailcards-feed.webp',
+        alt: 'A Trailcards study card on a phone: a short note on why the sky is blue, then a four-choice question',
         width: 375,
         height: 812,
       },
@@ -169,8 +169,8 @@ export const projects: Project[] = [
     links: [],
   },
   {
-    slug: 'yt-transcriber',
-    title: 'yt-transcriber',
+    slug: 'tubescript',
+    title: 'TubeScript',
     kind: 'Chrome extension',
     summary: 'Search, copy and jump through any YouTube transcript, on desktop or iPhone.',
     date: 'Oct 2026',
@@ -178,8 +178,8 @@ export const projects: Project[] = [
     tags: ['TypeScript', 'React', 'Chrome MV3'],
     images: [
       {
-        src: '/projects/yt-transcriber-popup.webp',
-        alt: 'yt-transcriber popup with a caption picker, copy and download buttons, search, and a timestamped transcript',
+        src: '/projects/tubescript-popup.webp',
+        alt: 'TubeScript popup with a caption picker, copy and download buttons, search, and a timestamped transcript',
         width: 340,
         height: 594,
       },
