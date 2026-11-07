@@ -13,6 +13,13 @@ export interface Profile {
   /** Optional longer context, tucked behind an info tip. */
   taglineDetail?: string
   location: string
+  photo: {
+    /** Small square face crop for the header. */
+    avatar: string
+    /** Larger photo for the About section. */
+    full: string
+    alt: string
+  }
   availability: {
     open: boolean
     label: string
@@ -50,7 +57,8 @@ export interface Project {
   kind: string
   /** One line for the card. Keep it under ~90 characters. */
   summary: string
-  year: string
+  /** Month the project started, e.g. "Oct 2026". */
+  date: string
   /** Card color. Any CSS color or a `var(--swatch-*)` token. */
   swatch: string
   tags: string[]
@@ -61,6 +69,8 @@ export interface Project {
   problem: string
   approach: string[]
   outcome: string[]
+  /** Shown as "What I'd change": known gaps and planned work, in my words. */
+  nextSteps?: string[]
   stack: string[]
   links: Link[]
   /** Setup steps for projects with no hosted version. Wrap commands in `backticks`. */

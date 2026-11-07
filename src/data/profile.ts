@@ -7,6 +7,11 @@ export const profile: Profile = {
   tagline: 'Software engineer focused on backend services and internal tools.',
   taglineDetail: 'CS graduate from USF (2024). Interned at JPMorgan Chase and GE Aerospace.',
   location: 'St. Petersburg, FL',
+  photo: {
+    avatar: '/tan-avatar.webp',
+    full: '/tan-photo.webp',
+    alt: 'Tan Thai at a mountain overlook on a clear day',
+  },
   availability: {
     open: true,
     label: 'Open to entry-level roles in Tampa Bay or remote',

@@ -7,7 +7,7 @@ export const projects: Project[] = [
     title: 'RJ Job Tracker',
     kind: 'Automation bot',
     summary: 'Watches the Raymond James job board and posts new openings to Discord twice a week.',
-    year: '2026',
+    date: 'Jun 2026',
     swatch: 'var(--swatch-beige)',
     tags: ['Python', 'GitHub Actions', 'GitHub Pages'],
     status: 'live',
@@ -36,10 +36,15 @@ export const projects: Project[] = [
       'Running since June 2026 for $0. The bot has made over 100 commits.',
       'Fixed a Workday paging quirk where only the first page reports the total. My first version stopped at 40 of 137 jobs.',
     ],
+    nextSteps: [
+      'Make the board URL and location configurable so it can watch any company that uses Workday.',
+      'Retry failed network requests instead of skipping a run.',
+      'Add a test that runs against a saved API response.',
+    ],
     stack: ['Python', 'requests', 'GitHub Actions', 'GitHub Pages', 'Workday API', 'Discord webhooks'],
     links: [
       { label: 'Live report', href: 'https://tanthai028.github.io/RJTracker/' },
-      { label: 'Source', href: 'https://github.com/tanthai028/RJTracker' },
+      { label: 'Code and write-up', href: 'https://github.com/tanthai028/RJTracker#readme' },
     ],
   },
   {
@@ -47,7 +52,7 @@ export const projects: Project[] = [
     title: 'tetrain',
     kind: 'Web app',
     summary: 'Drills Tetris piece colors and shapes, and quizzes you more on the ones you miss.',
-    year: '2026',
+    date: 'Oct 2026',
     swatch: 'var(--swatch-krypton)',
     tags: ['JavaScript', 'Web Audio', 'No framework'],
     status: 'live',
@@ -83,10 +88,15 @@ export const projects: Project[] = [
       'About 1,300 lines in total. Every push to main deploys to Vercel.',
       'My own stats had J and L at 78% while everything else was above 90%. That is what led to the weighting.',
     ],
+    nextSteps: [
+      'A Fill the Gap mode where you place the right piece into a board. The board model for it is already written.',
+      'A drill for reading the next-piece queue.',
+      'Optional syncing of stats across devices.',
+    ],
     stack: ['JavaScript (ES modules)', 'HTML/CSS', 'Web Audio API', 'Node test runner', 'Vercel'],
     links: [
       { label: 'Play it', href: 'https://tetrain.vercel.app' },
-      { label: 'Source', href: 'https://github.com/tanthai028/tetrain' },
+      { label: 'Code and write-up', href: 'https://github.com/tanthai028/tetrain#readme' },
     ],
   },
   {
@@ -94,7 +104,7 @@ export const projects: Project[] = [
     title: 'Wayfarer',
     kind: 'Mobile web app',
     summary: 'A study app that works like a scrolling feed, with reviews spaced out over weeks.',
-    year: '2026',
+    date: 'Oct 2026',
     swatch: 'var(--swatch-magnetic)',
     tags: ['React', 'TypeScript', 'Supabase'],
     status: 'live',
@@ -126,7 +136,7 @@ export const projects: Project[] = [
     title: 'Resumatch',
     kind: 'Chrome extension',
     summary: 'Reads a job posting and tells me which of my résumés to send.',
-    year: '2026',
+    date: 'Nov 2026',
     swatch: 'var(--swatch-anew)',
     tags: ['JavaScript', 'Chrome MV3', 'Node'],
     images: [
@@ -163,7 +173,7 @@ export const projects: Project[] = [
     title: 'yt-transcriber',
     kind: 'Chrome extension',
     summary: 'Search, copy and jump through any YouTube transcript, on desktop or iPhone.',
-    year: '2026',
+    date: 'Oct 2026',
     swatch: 'var(--swatch-morris)',
     tags: ['TypeScript', 'React', 'Chrome MV3'],
     images: [
@@ -186,8 +196,13 @@ export const projects: Project[] = [
       'An 817-line transcript loads in about 90 ms, or about 40 ms from the cache.',
       '57 unit tests run against real YouTube responses saved as fixtures.',
     ],
+    nextSteps: [
+      'Check the transcript-panel fallback against live YouTube. It is written against known structures but not verified yet.',
+      'Transcribe audio for videos that have no captions.',
+      "Offer YouTube's auto-translated caption tracks.",
+    ],
     stack: ['TypeScript', 'React 19', 'Chrome Manifest V3', 'esbuild', 'Node test runner', 'Vercel'],
-    links: [{ label: 'Source', href: 'https://github.com/tanthai028/yt-transcriber' }],
+    links: [{ label: 'Code and write-up', href: 'https://github.com/tanthai028/yt-transcriber#readme' }],
     tryLocally: [
       'Clone the repo and run `npm install`, then `npm run build`. Needs Node 24.',
       'Open `chrome://extensions` and turn on Developer mode.',
@@ -200,7 +215,7 @@ export const projects: Project[] = [
     title: 'YTBookmarks',
     kind: 'Chrome extension',
     summary: 'Adds your own labeled bookmarks to the YouTube progress bar. On the Chrome Web Store.',
-    year: '2025',
+    date: 'Jun 2025',
     swatch: 'var(--swatch-french-gray)',
     tags: ['JavaScript', 'Chrome MV3', 'SCSS'],
     status: 'live',
@@ -224,13 +239,18 @@ export const projects: Project[] = [
       'My first extension. It went through Chrome Web Store review and is now on version 2.4.',
       'It asks for very few permissions and has no account, server or tracking.',
     ],
+    nextSteps: [
+      'Sync bookmarks across devices with chrome.storage.sync.',
+      'Stop adding a timeupdate listener on every render, so long sessions stay light.',
+      'Add tests for the label layout logic.',
+    ],
     stack: ['JavaScript (ES modules)', 'Chrome Manifest V3', 'SCSS', 'esbuild'],
     links: [
       {
         label: 'Chrome Web Store',
         href: 'https://chromewebstore.google.com/detail/ytbookmarks/jkiapphfienejigejenmajblkimmclcl',
       },
-      { label: 'Source', href: 'https://github.com/tanthai028/YTBookmark' },
+      { label: 'Code and write-up', href: 'https://github.com/tanthai028/YTBookmark#readme' },
     ],
   },
 ]

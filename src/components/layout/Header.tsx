@@ -27,7 +27,8 @@ export function Header() {
     <header className={styles.header} data-scrolled={scrolled}>
       <div className={styles.inner}>
         <a href="#top" className={styles.brand} aria-label={`${profile.name}, back to top`}>
-          {profile.name}
+          <img src={profile.photo.avatar} alt="" width={28} height={28} className={styles.avatar} />
+          <span className={styles.brandName}>{profile.name}</span>
         </a>
 
         <nav className={styles.navWrap} aria-label="Primary">

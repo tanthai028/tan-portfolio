@@ -54,7 +54,7 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
         <div className={styles.eyebrow}>
           <span className={styles.kind}>
             <span>{project.kind}</span>
-            <span>{project.year}</span>
+            <span>{project.date}</span>
           </span>
           {project.status && <StatusBadge status={project.status} />}
         </div>

@@ -41,6 +41,7 @@ Text lives in typed data files, not in components.
 Types are in `src/types/content.ts`. Static files are in `public/`:
 
 - `Tan_Thai_Resume.pdf` is the résumé download.
+- `tan-avatar.webp` and `tan-photo.webp` are the header avatar and the About photo.
 - `projects/*.webp` are project screenshots. A project's first image is its card cover, and every image shows in its pop-up, where it opens full size on click.
 - `og.png` is the 1200×630 link preview.
 
