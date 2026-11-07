@@ -19,9 +19,9 @@ All copy lives in typed data files. Components never hold content.
 | ------------------------ | ----------------------------------------------- |
 | `src/data/profile.ts`    | Name, role, tagline, availability, links, skills |
 | `src/data/projects.ts`   | Project cards and their dialog details          |
-| `src/data/experience.ts` | Roles shown in the About section                |
+| `src/data/experience.ts` | Roles and education shown in the About section  |
 
-Types for all of it are in `src/types/content.ts`. Put your résumé at `public/resume.pdf`.
+Types for all of it are in `src/types/content.ts`. The résumé is served from `public/Tan_Thai_Resume.pdf`.
 
 ## Structure
 

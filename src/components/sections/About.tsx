@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { experience } from '@/data/experience'
+import { education, experience } from '@/data/experience'
 import { profile } from '@/data/profile'
 import type { Experience } from '@/types/content'
 import { Section } from '@/components/layout/Section'
@@ -36,20 +36,8 @@ export function About() {
         </Reveal>
       </div>
 
-      <h3 className={styles.subTitle}>Experience</h3>
-      <ul className={styles.roles}>
-        {experience.map((item, i) => (
-          <Reveal as="li" key={`${item.company}-${item.period}`} index={i}>
-            <button type="button" className={styles.role} onClick={() => setRole(item)} aria-haspopup="dialog">
-              <span className={styles.period}>{item.period}</span>
-              <span className={styles.roleName}>
-                {item.title} <span className={styles.company}>· {item.company}</span>
-              </span>
-              <Icon name="arrowRight" size={16} className={styles.roleArrow} />
-            </button>
-          </Reveal>
-        ))}
-      </ul>
+      <RoleList title="Experience" items={experience} onOpen={setRole} />
+      <RoleList title="Education" items={education} onOpen={setRole} />
 
       <Dialog
         open={role !== null}
@@ -65,10 +53,37 @@ export function About() {
                 <li key={point}>{point}</li>
               ))}
             </ul>
-            <TagList items={shown.stack} label="Tech used" />
+            {shown.stack.length > 0 && <TagList items={shown.stack} label="Tech used" />}
           </div>
         )}
       </Dialog>
     </Section>
+  )
+}
+
+interface RoleListProps {
+  title: string
+  items: Experience[]
+  onOpen: (item: Experience) => void
+}
+
+function RoleList({ title, items, onOpen }: RoleListProps) {
+  return (
+    <>
+      <h3 className={styles.subTitle}>{title}</h3>
+      <ul className={styles.roles}>
+        {items.map((item, i) => (
+          <Reveal as="li" key={`${item.company}-${item.period}`} index={i}>
+            <button type="button" className={styles.role} onClick={() => onOpen(item)} aria-haspopup="dialog">
+              <span className={styles.period}>{item.period}</span>
+              <span className={styles.roleName}>
+                {item.title} <span className={styles.company}>· {item.company}</span>
+              </span>
+              <Icon name="arrowRight" size={16} className={styles.roleArrow} />
+            </button>
+          </Reveal>
+        ))}
+      </ul>
+    </>
   )
 }
