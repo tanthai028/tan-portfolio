@@ -3,15 +3,15 @@ import type { Experience } from '@/types/content'
 /** Most recent first. */
 export const experience: Experience[] = [
   {
-    company: 'Independent',
+    company: 'Personal projects',
     title: 'Software Developer',
-    period: '2023 — Now',
-    summary: 'Automation and productivity tools I use myself, plus coursework in Python automation and AWS.',
+    period: 'Since 2023',
+    summary: 'Tools I build for myself, plus coursework in Python automation and AWS.',
     points: [
       'Built automated website monitors on GitHub Actions that detect changes and post digests to Discord.',
       'Engineered a data pipeline that pulls, filters, deduplicates, and caches postings from multiple sources.',
       'Developed a job application tracker desktop app (React/Electron) with SQLite storage and CSV/JSON import and export.',
-      'Shipped Chrome extensions and web apps, including yt-transcriber, Resumatch, tetrain, and Wayfarer.',
+      'Shipped the Chrome extensions and web apps on this page.',
     ],
     stack: ['Python', 'TypeScript', 'React', 'Electron', 'GitHub Actions'],
   },
@@ -19,7 +19,7 @@ export const experience: Experience[] = [
     company: 'GE Aerospace',
     title: 'Software Engineer Intern',
     period: 'Summer 2023',
-    summary: 'DXL team in Tools & Simulation: CI/CD, automation, and developer tooling for the engineering team.',
+    summary: 'On the DXL team in Tools & Simulation. I kept the team’s Jenkins jobs running and automated recurring work.',
     points: [
       'Owned diagnosis and resolution of failing Jenkins jobs, restoring internal CI/CD pipelines for the team.',
       'Automated recurring workflows in Python and DXL (IBM DOORS) and integrated them into Jenkins jobs.',
@@ -32,7 +32,7 @@ export const experience: Experience[] = [
     company: 'GE Aerospace',
     title: 'Systems Engineer Co-op',
     period: 'Fall 2022',
-    summary: 'Tools & Simulation: built Auto Test Batcher, an internal C#/.NET Windows app for validating system behavior.',
+    summary: 'Built Auto Test Batcher, an internal C#/.NET Windows app the Tools & Simulation team used to validate system behavior.',
     points: [
       'Developed and tested an internal C#/.NET Windows application used to validate system behavior.',
       'Built unit tests with about 80% coverage and wired them into Jenkins to catch defects before release.',
@@ -45,7 +45,7 @@ export const experience: Experience[] = [
     company: 'JPMorgan Chase & Co.',
     title: 'Full-Stack Software Engineer Intern',
     period: 'Summer 2022',
-    summary: 'Built DispVis, an internal full-stack web app that visualizes disputes data, with a 5-person Agile team.',
+    summary: 'Worked on DispVis, an internal web app for visualizing disputes data, as one of five engineers on an Agile team.',
     points: [
       'Built Java backend integrations using JDBC/SQL against AWS RDS.',
       "Deployed and maintained the app on AWS EC2 for the team's shared testing environment.",

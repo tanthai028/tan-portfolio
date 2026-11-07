@@ -20,6 +20,8 @@ export interface Profile {
   }
   email: string
   resumeUrl: string
+  /** This site's repository. Leave unset while the repo is private. */
+  sourceUrl?: string
   socials: Link[]
   about: string[]
   skills: SkillGroup[]
@@ -49,7 +51,6 @@ export interface Project {
   /** One line for the card. Keep it under ~90 characters. */
   summary: string
   year: string
-  role: string
   /** Card color. Any CSS color or a `var(--swatch-*)` token. */
   swatch: string
   tags: string[]
@@ -62,6 +63,8 @@ export interface Project {
   outcome: string[]
   stack: string[]
   links: Link[]
+  /** Setup steps for projects with no hosted version. Wrap commands in `backticks`. */
+  tryLocally?: string[]
 }
 
 export interface Experience {

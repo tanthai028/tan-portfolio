@@ -23,7 +23,7 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
       open={current !== null}
       onClose={onClose}
       title={project?.title ?? ''}
-      eyebrow={project ? `${project.kind} · ${project.year} · ${project.role}` : undefined}
+      eyebrow={project ? `${project.kind}, ${project.year}` : undefined}
       footer={
         project && project.links.length > 0
           ? project.links.map((link, i) => (
@@ -44,6 +44,17 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
           </DetailBlock>
           <DetailList title="What I did" items={project.approach} />
           <DetailList title="Outcome" items={project.outcome} />
+          {project.tryLocally && (
+            <DetailBlock title="Try it locally">
+              <ol className={styles.steps}>
+                {project.tryLocally.map((step) => (
+                  <li key={step}>
+                    <WithCode text={step} />
+                  </li>
+                ))}
+              </ol>
+            </DetailBlock>
+          )}
           <DetailBlock title="Stack">
             <TagList items={project.stack} label="Tech stack" />
           </DetailBlock>
@@ -102,6 +113,13 @@ function Gallery({ images }: { images: ProjectImage[] }) {
       )}
       <Lightbox images={images} index={viewing} onIndexChange={setViewing} onClose={() => setViewing(null)} />
     </div>
+  )
+}
+
+/** Renders `backticked` spans as inline code. */
+function WithCode({ text }: { text: string }) {
+  return text.split(/(`[^`]+`)/).map((part, i) =>
+    part.startsWith('`') ? <code key={i}>{part.slice(1, -1)}</code> : part,
   )
 }
 

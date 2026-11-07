@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 import type { Project } from '@/types/content'
 import { Icon } from '@/components/ui/Icon'
 import { StatusBadge } from './StatusBadge'
-import { isTall } from './isTall'
+import { imageShape } from './imageShape'
 import styles from './ProjectCard.module.css'
 
 interface ProjectCardProps {
@@ -35,7 +35,7 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
       data-featured={featured}
       style={{ '--swatch': project.swatch } as CSSProperties}
     >
-      <div className={styles.media} data-tall={cover ? isTall(cover) : undefined}>
+      <div className={styles.media} data-shape={cover ? imageShape(cover) : undefined}>
         {cover && (
           <img
             ref={markIfLoaded}
@@ -52,8 +52,9 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
 
       <div className={styles.body}>
         <div className={styles.eyebrow}>
-          <span>
-            {project.kind} · {project.year}
+          <span className={styles.kind}>
+            <span>{project.kind}</span>
+            <span>{project.year}</span>
           </span>
           {project.status && <StatusBadge status={project.status} />}
         </div>
@@ -64,7 +65,7 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
         </h3>
         <p className={styles.summary}>{project.summary}</p>
         <div className={styles.meta}>
-          <span className={styles.tags}>{project.tags.join(' · ')}</span>
+          <span className={styles.tags}>{project.tags.join(', ')}</span>
           <span className={styles.arrow} aria-hidden="true">
             <Icon name="arrowUpRight" size={16} />
           </span>

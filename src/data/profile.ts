@@ -3,15 +3,14 @@ import type { Profile } from '@/types/content'
 export const profile: Profile = {
   name: 'Tan Thai',
   role: 'Software Engineer',
-  tagline: 'I build backend systems, internal tools, and automations that take repetitive work off people’s plates.',
-  taglineDetail:
-    'USF Computer Science graduate (2024) with internships at JPMorgan Chase and GE Aerospace across full-stack, backend, CI/CD, and test automation.',
+  // Placeholder until Tan writes this line in their own words.
+  tagline: 'Software engineer focused on backend services and internal tools.',
+  taglineDetail: 'CS graduate from USF (2024). Interned at JPMorgan Chase and GE Aerospace.',
   location: 'St. Petersburg, FL',
   availability: {
     open: true,
-    label: 'Open to roles · Tampa Bay or remote',
-    detail:
-      'Entry-level backend, internal tools, platform, automation, and data engineering roles. Tampa Bay, elsewhere in Florida, or remote. U.S. citizen.',
+    label: 'Open to entry-level roles in Tampa Bay or remote',
+    detail: 'Backend, internal tools, platform, automation or data engineering. Anywhere in Florida works too. U.S. citizen.',
   },
   email: 'tanthai028.jobs@gmail.com',
   resumeUrl: '/Tan_Thai_Resume.pdf',
@@ -21,9 +20,9 @@ export const profile: Profile = {
     { label: 'Devpost', href: 'https://devpost.com/tanthai028' },
   ],
   about: [
-    'I like building practical software that makes a workflow faster or removes a chore entirely, especially Python backends, internal tools, and automation.',
-    'I’ve done that in internships at JPMorgan Chase and GE Aerospace, and in side projects I use myself, like a job-board bot and a résumé matcher. I like to experiment, ship something small, and keep improving it.',
-    'Outside of code: pickleball, learning piano, anime, and Path of Exile.',
+    'I like building software that saves someone time. Usually that means a Python backend, an internal tool, or a script that replaces a manual step.',
+    'I interned at JPMorgan Chase and GE Aerospace. Most of my side projects started as something I wanted for myself, like the job board bot and the résumé matcher on this page.',
+    'Outside of code I play pickleball, I’m learning piano, and I spend too much time in Path of Exile.',
   ],
   skills: [
     { label: 'Languages', items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C#'] },

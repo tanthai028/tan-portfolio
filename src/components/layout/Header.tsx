@@ -5,7 +5,7 @@ import { ThemeToggle } from './ThemeToggle'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
-  { id: 'work', label: 'Work' },
+  { id: 'work', label: 'Projects' },
   { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
 ] as const
@@ -28,9 +28,6 @@ export function Header() {
       <div className={styles.inner}>
         <a href="#top" className={styles.brand} aria-label={`${profile.name}, back to top`}>
           {profile.name}
-          <span className={styles.dot} aria-hidden="true">
-            .
-          </span>
         </a>
 
         <nav className={styles.navWrap} aria-label="Primary">

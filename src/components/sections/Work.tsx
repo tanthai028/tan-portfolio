@@ -47,9 +47,8 @@ export function Work() {
   return (
     <Section
       id="work"
-      index="01"
-      title="Selected work"
-      aside={<InfoTip label="selected work">Select a project for the problem, my role, and the outcome.</InfoTip>}
+      title="Projects"
+      aside={<InfoTip label="projects">Open a project for screenshots and details.</InfoTip>}
     >
       <ul className={styles.grid}>
         {projects.map((project, i) => {

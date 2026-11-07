@@ -12,7 +12,6 @@ const paths = {
   arrowRight: <path d="M5 12h14M13 6l6 6-6 6" />,
   arrowLeft: <path d="M19 12H5M11 6l-6 6 6 6" />,
   expand: <path d="M14 4h6v6M10 20H4v-6M20 4l-6.5 6.5M4 20l6.5-6.5" />,
-  arrowDown: <path d="M12 5v14M6 13l6 6 6-6" />,
   close: <path d="M6 6l12 12M18 6 6 18" />,
   copy: (
     <>

@@ -26,13 +26,10 @@
 }
 
 .brand {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-size: var(--text-base);
   line-height: 1;
-}
-
-.dot {
-  color: var(--color-accent);
 }
 
 .navWrap {

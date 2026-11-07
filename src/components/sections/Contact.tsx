@@ -11,9 +11,9 @@ export function Contact() {
   const { copied, copy } = useCopyToClipboard()
 
   return (
-    <Section id="contact" index="03" title="Contact">
+    <Section id="contact" title="Contact">
       <Reveal className={styles.card}>
-        <p className={styles.prompt}>Have a role or project in mind?</p>
+        <p className={styles.prompt}>Email is the best way to reach me.</p>
 
         <div className={styles.emailRow}>
           <a href={`mailto:${profile.email}`} className={styles.email}>

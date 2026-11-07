@@ -16,7 +16,7 @@ export function About() {
   if (role && role !== shown) setShown(role)
 
   return (
-    <Section id="about" index="02" title="About">
+    <Section id="about" title="About">
       <div className={styles.layout}>
         <Reveal className={styles.bio}>
           {profile.about.map((paragraph) => (
@@ -43,7 +43,7 @@ export function About() {
         open={role !== null}
         onClose={() => setRole(null)}
         title={shown?.title ?? ''}
-        eyebrow={shown ? `${shown.company} · ${shown.period}` : undefined}
+        eyebrow={shown ? `${shown.company}, ${shown.period}` : undefined}
       >
         {shown && (
           <div className={styles.dialogBody}>
@@ -77,7 +77,7 @@ function RoleList({ title, items, onOpen }: RoleListProps) {
             <button type="button" className={styles.role} onClick={() => onOpen(item)} aria-haspopup="dialog">
               <span className={styles.period}>{item.period}</span>
               <span className={styles.roleName}>
-                {item.title} <span className={styles.company}>· {item.company}</span>
+                {item.title}, <span className={styles.company}>{item.company}</span>
               </span>
               <Icon name="arrowRight" size={16} className={styles.roleArrow} />
             </button>

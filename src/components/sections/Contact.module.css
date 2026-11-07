@@ -22,7 +22,8 @@
 
 .email {
   min-width: 0;
-  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.025em;
   font-size: var(--text-xl);
   line-height: 1.15;
   overflow-wrap: anywhere;

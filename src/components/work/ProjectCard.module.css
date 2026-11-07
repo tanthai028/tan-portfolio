@@ -62,8 +62,12 @@
   box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.4);
 }
 
-/* Phone and popup shots: same window, narrower. */
-.media[data-tall='true'] img {
+/* Popups and phone screens: same window, narrower. */
+.media[data-shape='square'] img {
+  width: 62%;
+}
+
+.media[data-shape='tall'] img {
   width: 44%;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
@@ -86,13 +90,20 @@
   justify-content: space-between;
   gap: var(--space-2);
   min-height: 1.5rem;
-  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
+.kind {
+  display: inline-flex;
+  gap: var(--space-3);
+}
+
 .title {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-size: 1.5rem;
 }
 
 .open {
@@ -138,14 +149,12 @@
   color: var(--color-text);
   transition:
     background-color var(--duration-base) var(--ease-out),
-    color var(--duration-base) var(--ease-out),
-    rotate var(--duration-base) var(--ease-out);
+    color var(--duration-base) var(--ease-out);
 }
 
 .card:hover .arrow {
   background: var(--color-text);
   color: var(--color-bg);
-  rotate: 45deg;
 }
 
 /* Featured: full width, screenshot beside the text. */
@@ -161,7 +170,11 @@
     min-height: 22rem;
   }
 
-  .card[data-featured='true'] .media[data-tall='true'] img {
+  .card[data-featured='true'] .media[data-shape='square'] img {
+    width: 46%;
+  }
+
+  .card[data-featured='true'] .media[data-shape='tall'] img {
     width: 32%;
   }
 

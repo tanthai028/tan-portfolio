@@ -17,8 +17,6 @@
 }
 
 .lightbox[open] {
-  display: grid;
-  place-items: center;
   opacity: 1;
 }
 
@@ -33,21 +31,26 @@
 }
 
 .figure {
+  /* Space kept clear around the image for the close button, arrows and counter. */
+  --pad-top: calc(var(--space-16) + var(--space-2) + env(safe-area-inset-top));
+  --pad-bottom: calc(var(--space-12) + env(safe-area-inset-bottom));
+  /* Top and bottom padding plus room for the counter. */
+  --reserved-y: calc(var(--pad-top) + var(--pad-bottom) + var(--space-8));
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  width: 100%;
-  height: 100%;
   margin: 0;
-  padding: calc(var(--space-16) + env(safe-area-inset-top)) var(--space-4) var(--space-8);
+  padding: var(--pad-top) var(--space-4) var(--pad-bottom);
 }
 
+/* Sized against the viewport, so tall phone shots fit whole instead of being cropped. */
 .figure img {
   max-width: min(100%, 90rem);
-  max-height: 100%;
-  min-height: 0;
+  max-height: calc(100dvh - var(--reserved-y));
   width: auto;
   height: auto;
   object-fit: contain;
@@ -106,7 +109,7 @@
 /* On phones, keep the image full width and move the arrows below it. */
 @media (max-width: 40rem) {
   .figure {
-    padding-bottom: calc(var(--space-16) + var(--space-4) + env(safe-area-inset-bottom));
+    --pad-bottom: calc(var(--space-16) + var(--space-6) + env(safe-area-inset-bottom));
   }
 
   .prev,
