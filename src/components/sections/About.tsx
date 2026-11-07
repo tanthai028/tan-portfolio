@@ -25,15 +25,18 @@ export function About() {
         </Reveal>
 
         <Reveal index={1} className={styles.skills}>
-          <img
-            src={profile.photo.full}
-            alt={profile.photo.alt}
-            width={460}
-            height={460}
-            loading="lazy"
-            decoding="async"
-            className={styles.photo}
-          />
+          <figure className={styles.figure}>
+            <img
+              src={profile.photo.full}
+              alt={profile.photo.alt}
+              width={460}
+              height={460}
+              loading="lazy"
+              decoding="async"
+              className={styles.photo}
+            />
+            {profile.photo.caption && <figcaption className={styles.caption}>{profile.photo.caption}</figcaption>}
+          </figure>
           <dl className={styles.skillGrid}>
             {profile.skills.map((group) => (
               <div key={group.label}>

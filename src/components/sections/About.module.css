@@ -29,6 +29,17 @@
   gap: var(--space-8);
 }
 
+.figure {
+  margin: 0;
+}
+
+.caption {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
 .photo {
   width: 100%;
   max-width: 15rem;

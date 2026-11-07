@@ -19,6 +19,7 @@ export interface Profile {
     /** Larger photo for the About section. */
     full: string
     alt: string
+    caption?: string
   }
   availability: {
     open: boolean

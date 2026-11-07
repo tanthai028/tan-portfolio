@@ -10,7 +10,8 @@ export const profile: Profile = {
   photo: {
     avatar: '/tan-avatar.webp',
     full: '/tan-photo.webp',
-    alt: 'Tan Thai at a mountain overlook on a clear day',
+    alt: 'Tan Thai at the See Seven States overlook on a clear day',
+    caption: 'Rock City, Lookout Mountain',
   },
   availability: {
     open: true,
