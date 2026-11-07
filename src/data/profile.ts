@@ -14,6 +14,7 @@ export const profile: Profile = {
   },
   email: 'tanthai028.jobs@gmail.com',
   resumeUrl: '/Tan_Thai_Resume.pdf',
+  sourceUrl: 'https://github.com/tanthai028/tan-portfolio',
   socials: [
     { label: 'GitHub', href: 'https://github.com/tanthai028' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tanthai028' },
