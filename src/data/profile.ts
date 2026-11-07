@@ -1,6 +1,6 @@
 import type { Profile } from '@/types/content'
 
-// TODO: email and about copy are still placeholders.
+// TODO: about copy is still a placeholder.
 export const profile: Profile = {
   name: 'Tan Thai',
   role: 'Software Engineer',
@@ -13,7 +13,7 @@ export const profile: Profile = {
     label: 'Open to new roles',
     detail: 'Full-time software engineering roles. Remote, hybrid, or on-site.',
   },
-  email: 'hello@example.com',
+  email: 'tanthai028@gmail.com',
   resumeUrl: '/resume.pdf',
   socials: [
     { label: 'GitHub', href: 'https://github.com/tanthai028' },
