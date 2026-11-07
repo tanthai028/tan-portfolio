@@ -194,7 +194,7 @@ export const projects: Project[] = [
     ],
     outcome: [
       'An 817-line transcript loads in about 90 ms, or about 40 ms from the cache.',
-      '57 unit tests run against real YouTube responses saved as fixtures.',
+      '69 unit tests run against real YouTube responses saved as fixtures.',
     ],
     nextSteps: [
       'Check the transcript-panel fallback against live YouTube. It is written against known structures but not verified yet.',
