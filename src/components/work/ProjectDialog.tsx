@@ -23,7 +23,7 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
       open={current !== null}
       onClose={onClose}
       title={project?.title ?? ''}
-      eyebrow={project ? `${project.kind}, ${project.date}` : undefined}
+      eyebrow={project ? `${project.kind} | ${project.date}` : undefined}
       footer={
         project && project.links.length > 0
           ? project.links.map((link, i) => (
