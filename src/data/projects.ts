@@ -49,7 +49,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'tetrain',
-    title: 'tetrain',
+    title: 'TETRAIN',
     kind: 'Web app',
     summary: 'Drills Tetris piece colors and shapes, and quizzes you more on the ones you miss.',
     date: 'Oct 2026',
