@@ -190,4 +190,49 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'React 19', 'Chrome Manifest V3', 'esbuild', 'Node test runner', 'Vercel'],
     links: [{ label: 'Source', href: 'https://github.com/tanthai028/yt-transcriber' }],
   },
+  {
+    slug: 'ytbookmarks',
+    title: 'YTBookmarks',
+    kind: 'Chrome extension',
+    summary: 'Pin your own labeled bookmarks on YouTube’s progress bar. Published on the Chrome Web Store.',
+    year: '2025',
+    role: 'Solo',
+    swatch: 'var(--swatch-french-gray)',
+    tags: ['JavaScript', 'Chrome MV3', 'SCSS'],
+    status: 'live',
+    images: [
+      {
+        src: '/projects/ytbookmarks-cover.webp',
+        alt: 'YTBookmarks on a YouTube video: labeled pins stacked on the progress bar, and the bookmark sidebar',
+        width: 1353,
+        height: 664,
+      },
+      {
+        src: '/projects/ytbookmarks-demo.webp',
+        alt: 'The full YouTube player with YTBookmarks: five bookmarks in the sidebar and their pins on the timeline',
+        width: 1353,
+        height: 774,
+      },
+    ],
+    problem:
+      "Finding one moment again in a long lecture or tutorial meant scrubbing back and forth. YouTube's chapters only exist when the creator adds them, and they mark the creator's moments, not mine.",
+    approach: [
+      'A button in the player saves the current time; each bookmark becomes a labeled pin on the progress bar and a row in a draggable sidebar.',
+      "Rebuilds its UI on YouTube's own navigation events, since YouTube swaps videos without reloading the page.",
+      'Places pins by time and stacks overlapping labels with a small interval-packing layout, measuring before writing to avoid extra layout work.',
+      'Inline rename, undo, search, and JSON export/import, split into modules around a central state store.',
+    ],
+    outcome: [
+      'Published on the Chrome Web Store, now at version 2.4. My first extension, taken from idea to store listing and updates.',
+      'Minimal permissions: no account, no server, no tracking.',
+    ],
+    stack: ['JavaScript (ES modules)', 'Chrome Manifest V3', 'SCSS', 'esbuild'],
+    links: [
+      {
+        label: 'Chrome Web Store',
+        href: 'https://chromewebstore.google.com/detail/ytbookmarks/jkiapphfienejigejenmajblkimmclcl',
+      },
+      { label: 'Source', href: 'https://github.com/tanthai028/YTBookmark' },
+    ],
+  },
 ]
