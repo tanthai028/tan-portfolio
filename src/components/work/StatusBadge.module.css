@@ -12,12 +12,41 @@
 }
 
 .dot {
+  position: relative;
   width: 0.4375rem;
   height: 0.4375rem;
   border-radius: var(--radius-full);
   background: #7d9a7a;
 }
 
+/* Live projects get a soft ring that grows and fades, like a heartbeat. */
+.badge[data-status='live'] .dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: pulse 2.4s var(--ease-out) infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    scale: 1;
+  }
+  70%,
+  100% {
+    opacity: 0;
+    scale: 2.6;
+  }
+}
+
 .badge[data-status='in-progress'] .dot {
   background: #c99a4b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge[data-status='live'] .dot::after {
+    animation: none;
+  }
 }
