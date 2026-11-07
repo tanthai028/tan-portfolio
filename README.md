@@ -55,9 +55,9 @@ src/
     layout/    Header, Footer, Section, ThemeToggle
     sections/  Hero, Work, About, Contact
     work/      ProjectCard, ProjectDialog, StatusBadge, imageShape
-    ui/        Button, Dialog, Lightbox, InfoTip, Icon, Reveal, Tag, Toast
+    ui/        Button, Dialog, Lightbox, InfoTip, Icon, Reveal, ScrollCue, Tag, Toast
   data/        Site content
-  hooks/       useTheme, useActiveSection, useCopyToClipboard
+  hooks/       useTheme, useActiveSection, useScrolled, useCopyToClipboard
   styles/      tokens.css (design tokens), global.css (reset and base styles)
   types/       Content model
 docs/          README and GitHub preview images

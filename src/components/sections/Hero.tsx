@@ -2,6 +2,7 @@ import { profile } from '@/data/profile'
 import { Button } from '@/components/ui/Button'
 import { InfoTip } from '@/components/ui/InfoTip'
 import { Reveal } from '@/components/ui/Reveal'
+import { ScrollCue } from '@/components/ui/ScrollCue'
 import styles from './Hero.module.css'
 
 export function Hero() {
@@ -34,6 +35,8 @@ export function Hero() {
           Résumé
         </Button>
       </Reveal>
+
+      <ScrollCue href="#work" />
     </section>
   )
 }

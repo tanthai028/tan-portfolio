@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
 import { profile } from '@/data/profile'
 import { useActiveSection } from '@/hooks/useActiveSection'
+import { useScrolled } from '@/hooks/useScrolled'
 import { ThemeToggle } from './ThemeToggle'
 import styles from './Header.module.css'
 
@@ -14,14 +14,7 @@ const SECTION_IDS = NAV_ITEMS.map((item) => item.id)
 
 export function Header() {
   const active = useActiveSection(SECTION_IDS)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const scrolled = useScrolled()
 
   return (
     <header className={styles.header} data-scrolled={scrolled}>
