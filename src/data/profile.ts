@@ -12,7 +12,7 @@ export const profile: Profile = {
     label: 'Open to new roles',
     detail: 'Full-time software engineering roles. U.S. citizen, based in St. Petersburg, FL.',
   },
-  email: 'tanthai028@gmail.com',
+  email: 'tanthai028.jobs@gmail.com',
   resumeUrl: '/Tan_Thai_Resume.pdf',
   socials: [
     { label: 'GitHub', href: 'https://github.com/tanthai028' },
