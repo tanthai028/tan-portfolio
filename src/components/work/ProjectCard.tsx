@@ -11,6 +11,16 @@ interface ProjectCardProps {
   onOpen: (slug: string) => void
 }
 
+/** Covers fade in once decoded, instead of showing an empty framed box while loading. */
+function markLoaded(img: HTMLImageElement) {
+  img.dataset.loaded = 'true'
+}
+
+// Cached images can finish before React attaches onLoad.
+function markIfLoaded(img: HTMLImageElement | null) {
+  if (img?.complete && img.naturalWidth > 0) markLoaded(img)
+}
+
 /**
  * Paint-chip style card: the cover screenshot sits on the project's swatch color.
  * The title button's hit area is stretched over the whole card, so the card is
@@ -28,21 +38,25 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
       <div className={styles.media} data-tall={cover ? isTall(cover) : undefined}>
         {cover && (
           <img
+            ref={markIfLoaded}
             src={cover.src}
             alt=""
             width={cover.width}
             height={cover.height}
             loading={featured ? 'eager' : 'lazy'}
             decoding="async"
+            onLoad={(event) => markLoaded(event.currentTarget)}
           />
         )}
-        {project.status && <StatusBadge status={project.status} className={styles.badge} />}
       </div>
 
       <div className={styles.body}>
-        <p className={styles.eyebrow}>
-          {project.kind} · {project.year}
-        </p>
+        <div className={styles.eyebrow}>
+          <span>
+            {project.kind} · {project.year}
+          </span>
+          {project.status && <StatusBadge status={project.status} />}
+        </div>
         <h3 className={styles.title}>
           <button type="button" className={styles.open} onClick={() => onOpen(project.slug)} aria-haspopup="dialog">
             {project.title}

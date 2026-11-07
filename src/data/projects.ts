@@ -102,7 +102,7 @@ export const projects: Project[] = [
     role: 'Solo · Design + build',
     swatch: 'var(--swatch-magnetic)',
     tags: ['React', 'TypeScript', 'Supabase'],
-    status: 'in-progress',
+    status: 'live',
     images: [
       {
         src: '/projects/wayfarer-feed.webp',
@@ -121,10 +121,10 @@ export const projects: Project[] = [
     ],
     outcome: [
       '78 commits of iteration on phone UX: one card per swipe, no inner scrolling, 44px tap targets.',
-      'Not deployed yet. Runs locally while I finish it.',
+      'Live on Vercel and installable as a home-screen app.',
     ],
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Supabase', 'Vitest'],
-    links: [],
+    links: [{ label: 'Try it', href: 'https://cozyquest-nine.vercel.app' }],
   },
   {
     slug: 'resumatch',

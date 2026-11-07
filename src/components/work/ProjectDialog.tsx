@@ -3,6 +3,7 @@ import type { Project, ProjectImage } from '@/types/content'
 import { Button } from '@/components/ui/Button'
 import { Dialog } from '@/components/ui/Dialog'
 import { Icon } from '@/components/ui/Icon'
+import { Lightbox } from '@/components/ui/Lightbox'
 import { TagList } from '@/components/ui/Tag'
 import { StatusBadge } from './StatusBadge'
 import styles from './ProjectDialog.module.css'
@@ -52,9 +53,13 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
   )
 }
 
-/** Swipeable strip of screenshots; the next one peeks in, and arrows step through them. */
+/**
+ * Swipeable strip of screenshots; the next one peeks in, and arrows step through them.
+ * Selecting a screenshot opens it full size in a lightbox.
+ */
 function Gallery({ images }: { images: ProjectImage[] }) {
   const stripRef = useRef<HTMLDivElement>(null)
+  const [viewing, setViewing] = useState<number | null>(null)
   const multiple = images.length > 1
 
   const step = (direction: 1 | -1) => {
@@ -68,25 +73,34 @@ function Gallery({ images }: { images: ProjectImage[] }) {
         ref={stripRef}
         className={styles.gallery}
         data-single={!multiple}
-        tabIndex={multiple ? 0 : undefined}
         aria-label={multiple ? `Screenshots, ${images.length} total` : undefined}
       >
-        {images.map((image) => (
-          <figure key={image.src} className={styles.shot}>
-            <img src={image.src} alt={image.alt} width={image.width} height={image.height} decoding="async" />
-          </figure>
+        {images.map((image, i) => (
+          <button
+            key={image.src}
+            type="button"
+            className={styles.shot}
+            onClick={() => setViewing(i)}
+            aria-label={`View full size: ${image.alt}`}
+          >
+            <img src={image.src} alt="" width={image.width} height={image.height} decoding="async" />
+            <span className={styles.expand} aria-hidden="true">
+              <Icon name="expand" size={14} />
+            </span>
+          </button>
         ))}
       </div>
       {multiple && (
         <div className={styles.galleryNav}>
           <button type="button" className={styles.navButton} onClick={() => step(-1)} aria-label="Previous screenshot">
-            <Icon name="arrowRight" size={16} className={styles.flip} />
+            <Icon name="arrowLeft" size={16} />
           </button>
           <button type="button" className={styles.navButton} onClick={() => step(1)} aria-label="Next screenshot">
             <Icon name="arrowRight" size={16} />
           </button>
         </div>
       )}
+      <Lightbox images={images} index={viewing} onIndexChange={setViewing} onClose={() => setViewing(null)} />
     </div>
   )
 }

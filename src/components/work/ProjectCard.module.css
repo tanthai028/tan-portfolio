@@ -30,41 +30,46 @@
   outline-offset: 3px;
 }
 
-/* Cover: the screenshot rises from the bottom edge of the swatch. */
+/*
+ * Cover: every screenshot sits in the same inset window on the swatch, anchored to
+ * the top and cropped by the bottom edge. Only the width changes with the shape.
+ */
 .media {
-  position: relative;
+  --inset: 8%;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   aspect-ratio: 16 / 10;
-  padding: 7% 7% 0;
+  padding: var(--inset) var(--inset) 0;
   background: var(--swatch-bg);
   overflow: hidden;
 }
 
 .media img {
-  align-self: flex-start;
   width: 100%;
   height: auto;
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.45);
-  transition: translate var(--duration-slow) var(--ease-out);
+  outline: 1px solid rgb(0 0 0 / 0.08);
+  outline-offset: -1px;
+  opacity: 0;
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    translate var(--duration-slow) var(--ease-out);
 }
 
-/* Phone and popup shots: narrower and taller, so they peek up like a device. */
+.media img[data-loaded='true'] {
+  opacity: 1;
+  box-shadow: 0 12px 32px -12px rgb(0 0 0 / 0.4);
+}
+
+/* Phone and popup shots: same window, narrower. */
 .media[data-tall='true'] img {
-  width: auto;
-  height: 135%;
+  width: 44%;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
 .card:hover .media img {
   translate: 0 -6px;
-}
-
-.badge {
-  position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
 }
 
 .body {
@@ -76,6 +81,11 @@
 }
 
 .eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: 1.5rem;
   font-size: var(--text-xs);
   color: var(--color-text-muted);
 }
@@ -146,27 +156,13 @@
   }
 
   .card[data-featured='true'] .media {
+    --inset: 7%;
     aspect-ratio: auto;
     min-height: 22rem;
-    padding: 8% 0 0 8%;
-    justify-content: flex-start;
-  }
-
-  .card[data-featured='true'] .media img {
-    width: 115%;
-    max-width: none;
-    border-radius: var(--radius-sm) 0 0 0;
-  }
-
-  .card[data-featured='true'] .media[data-tall='true'] {
-    justify-content: center;
-    padding: 6% 0 0;
   }
 
   .card[data-featured='true'] .media[data-tall='true'] img {
-    width: auto;
-    height: 115%;
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    width: 32%;
   }
 
   .card[data-featured='true'] .body {

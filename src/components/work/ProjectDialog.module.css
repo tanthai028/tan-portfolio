@@ -32,10 +32,12 @@
 }
 
 .shot {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 88%;
+  cursor: zoom-in;
   height: clamp(14rem, 40dvh, 20rem);
   margin: 0;
   padding: var(--space-4);
@@ -58,6 +60,26 @@
   border-radius: var(--radius-sm);
   /* drop-shadow follows transparency, so cut-out phone shots get a matching shadow. */
   filter: drop-shadow(0 12px 20px rgb(0 0 0 / 0.3));
+  transition: scale var(--duration-base) var(--ease-out);
+}
+
+.shot:hover img {
+  scale: 1.02;
+}
+
+/* Always visible, so touch users know the image opens larger. */
+.expand {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-surface-raised) 90%, transparent);
+  color: var(--color-text);
+  box-shadow: var(--shadow-card);
 }
 
 .galleryNav {
@@ -84,14 +106,9 @@
   border-color: var(--color-text-muted);
 }
 
-.flip {
-  rotate: 180deg;
-}
-
 .status {
   align-self: flex-start;
   margin-bottom: calc(-1 * var(--space-2));
-  border: 1px solid var(--color-border);
 }
 
 .lead {
