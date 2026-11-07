@@ -1,0 +1,23 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.125rem var(--space-3) 0.125rem var(--space-2);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-surface-raised) 88%, transparent);
+  backdrop-filter: blur(6px);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: var(--radius-full);
+  background: #7d9a7a;
+}
+
+.badge[data-status='in-progress'] .dot {
+  background: #c99a4b;
+}

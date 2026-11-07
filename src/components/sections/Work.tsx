@@ -44,8 +44,8 @@ export function Work() {
     >
       <ul className={styles.grid}>
         {projects.map((project, i) => (
-          <Reveal as="li" key={project.slug} index={i % 2}>
-            <ProjectCard project={project} number={i + 1} onOpen={open} />
+          <Reveal as="li" key={project.slug} index={i === 0 ? 0 : (i - 1) % 2} className={i === 0 ? styles.featured : ''}>
+            <ProjectCard project={project} featured={i === 0} onOpen={open} />
           </Reveal>
         ))}
       </ul>

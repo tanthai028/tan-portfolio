@@ -1,15 +1,25 @@
 import type { Project } from '@/types/content'
 
+/** Shown in this order. The first project is featured with a wide card. */
 export const projects: Project[] = [
   {
     slug: 'rj-tracker',
     title: 'RJ Job Tracker',
+    kind: 'Automation bot',
     summary: 'A free, serverless bot that pings Discord the moment a job posting goes up or comes down.',
     year: '2026',
     role: 'Solo',
     swatch: 'var(--swatch-beige)',
     tags: ['Python', 'GitHub Actions', 'Discord'],
-    highlight: 'Running daily',
+    status: 'running',
+    images: [
+      {
+        src: '/projects/rj-tracker-discord.webp',
+        alt: 'Two Discord alerts: a new posting with location, date and requisition number, and a removed posting struck through',
+        width: 714,
+        height: 376,
+      },
+    ],
     problem:
       'Early-career roles on the Raymond James Workday board fill on a rolling basis, and the board has no alerts. Checking it by hand every day was slow and easy to forget.',
     approach: [
@@ -28,12 +38,33 @@ export const projects: Project[] = [
   {
     slug: 'tetrain',
     title: 'tetrain',
+    kind: 'Web app',
     summary: 'A Tetris piece trainer that adapts to the pieces you keep mixing up.',
     year: '2026',
     role: 'Solo · Design + build',
     swatch: 'var(--swatch-krypton)',
     tags: ['JavaScript', 'Web Audio', 'No framework'],
-    highlight: 'Live',
+    status: 'live',
+    images: [
+      {
+        src: '/projects/tetrain-quiz.webp',
+        alt: 'Quiz mode: an orange color swatch above seven gray Tetris pieces to choose from',
+        width: 1053,
+        height: 666,
+      },
+      {
+        src: '/projects/tetrain-learn.webp',
+        alt: 'Learn mode: all seven pieces shown in their four rotations',
+        width: 1057,
+        height: 615,
+      },
+      {
+        src: '/projects/tetrain-stats.webp',
+        alt: 'Stats page: accuracy and average time per piece, with J and L lowest at 78%',
+        width: 1074,
+        height: 613,
+      },
+    ],
     problem:
       'In fast Tetris, every split second spent on "is that J or L?" costs a placement. There was no simple way to practice just piece recognition outside a real game.',
     approach: [
@@ -55,12 +86,21 @@ export const projects: Project[] = [
   {
     slug: 'wayfarer',
     title: 'Wayfarer',
-    summary: 'A cozy, mobile-first study app you scroll like a social feed.',
+    kind: 'Mobile web app',
+    summary: 'A cozy study app you scroll like a social feed, with spaced reviews and AI-made decks.',
     year: '2026',
     role: 'Solo · Design + build',
     swatch: 'var(--swatch-magnetic)',
     tags: ['React', 'TypeScript', 'Supabase'],
-    highlight: 'In progress',
+    status: 'in-progress',
+    images: [
+      {
+        src: '/projects/wayfarer-feed.webp',
+        alt: 'A Wayfarer study card on a phone: a short note on why the sky is blue, then a four-choice question',
+        width: 375,
+        height: 812,
+      },
+    ],
     problem:
       'Flashcard apps feel like chores. I wanted studying to feel as easy to pick up as scrolling a feed, with short cards, instant feedback, and reviews that come back at the right time.',
     approach: [
@@ -77,13 +117,54 @@ export const projects: Project[] = [
     links: [],
   },
   {
+    slug: 'resumatch',
+    title: 'Resumatch',
+    kind: 'Chrome extension',
+    summary: 'Reads a job posting and tells me which of my four résumés to send, or when to tailor one.',
+    year: '2026',
+    role: 'Solo',
+    swatch: 'var(--swatch-anew)',
+    tags: ['JavaScript', 'Chrome MV3', 'Node tests'],
+    images: [
+      {
+        src: '/projects/resumatch-popup.webp',
+        alt: 'Resumatch popup for a sample posting: "Use Software" with a high match, and scores for all four résumés',
+        width: 704,
+        height: 720,
+      },
+    ],
+    problem:
+      'I apply with four résumés (software, tech support, IT support, business analyst). Picking the right one for each posting, and spotting dealbreakers buried in the requirements, took time on every application.',
+    approach: [
+      'Highlight a posting and the popup scores every résumé by weighted keywords, synonyms and title matches, then gives one verdict: use a résumé, tailor one, or likely skip.',
+      'Red-flag checks for years of experience, seniority, missing required tools, clearance and location, reading only the required section, not "preferred".',
+      'When no résumé fits well, one click copies a ready-made prompt and opens Claude to tailor a version.',
+      'An application log with duplicate detection, undo, filtering and CSV export.',
+    ],
+    outcome: [
+      'All weights, keywords and thresholds live in one config file, so tuning needs no code changes.',
+      'A Node test runner checks the expected verdict for saved postings and prints every score and keyword hit.',
+    ],
+    stack: ['JavaScript', 'Chrome Manifest V3', 'chrome.storage', 'Node.js'],
+    links: [],
+  },
+  {
     slug: 'yt-transcriber',
     title: 'yt-transcriber',
+    kind: 'Chrome extension',
     summary: 'Search and copy any YouTube transcript, with clickable timestamps, on desktop and iPhone.',
     year: '2026',
     role: 'Solo',
     swatch: 'var(--swatch-morris)',
-    tags: ['TypeScript', 'React', 'Chrome extension'],
+    tags: ['TypeScript', 'React', 'Chrome MV3'],
+    images: [
+      {
+        src: '/projects/yt-transcriber-popup.webp',
+        alt: 'yt-transcriber popup with a caption picker, copy and download buttons, search, and a timestamped transcript',
+        width: 340,
+        height: 594,
+      },
+    ],
     problem:
       "YouTube's transcript panel is buried, can't be searched, and is awkward to copy from, especially on a phone. A 2026 YouTube change also broke most existing caption tools.",
     approach: [

@@ -30,10 +30,22 @@ export interface SkillGroup {
   items: string[]
 }
 
+export interface ProjectImage {
+  /** Path under `public/`, e.g. `/projects/tetrain-quiz.webp`. */
+  src: string
+  alt: string
+  width: number
+  height: number
+}
+
+export type ProjectStatus = 'live' | 'running' | 'in-progress'
+
 export interface Project {
   /** Stable, URL-safe id. Used for deep links (`#project-<slug>`). */
   slug: string
   title: string
+  /** What it is, in two or three words, e.g. "Chrome extension". */
+  kind: string
   /** One line for the card. Keep it under ~90 characters. */
   summary: string
   year: string
@@ -41,7 +53,9 @@ export interface Project {
   /** Card color. Any CSS color or a `var(--swatch-*)` token. */
   swatch: string
   tags: string[]
-  highlight?: string
+  status?: ProjectStatus
+  /** The first image is the card cover; all of them show in the dialog. */
+  images: ProjectImage[]
   /** Everything below only appears in the project dialog. */
   problem: string
   approach: string[]

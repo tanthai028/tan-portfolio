@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { About } from '@/components/sections/About'
@@ -21,6 +22,8 @@ export function App() {
         <Contact />
         <Footer />
       </main>
+      {/* Visitor counts in the Vercel dashboard. Cookie-free; a no-op outside Vercel. */}
+      <Analytics />
     </>
   )
 }

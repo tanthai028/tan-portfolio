@@ -1,7 +1,17 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-6);
   padding: 0;
   list-style: none;
+}
+
+@media (min-width: 44rem) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured {
+    grid-column: 1 / -1;
+  }
 }
