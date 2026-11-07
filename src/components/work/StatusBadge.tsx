@@ -3,7 +3,6 @@ import styles from './StatusBadge.module.css'
 
 const LABELS: Record<ProjectStatus, string> = {
   live: 'Live',
-  running: 'Running daily',
   'in-progress': 'In progress',
 }
 

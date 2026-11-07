@@ -38,7 +38,7 @@ export interface ProjectImage {
   height: number
 }
 
-export type ProjectStatus = 'live' | 'running' | 'in-progress'
+export type ProjectStatus = 'live' | 'in-progress'
 
 export interface Project {
   /** Stable, URL-safe id. Used for deep links (`#project-<slug>`). */
