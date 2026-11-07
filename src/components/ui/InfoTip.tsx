@@ -12,7 +12,8 @@ const VIEWPORT_MARGIN = 12
 const OFFSET = 8
 
 /**
- * A small "?" button that reveals secondary detail in a floating popover.
+ * A small "?" button that reveals secondary detail in a floating popover: on hover with a mouse,
+ * on tap with touch.
  * Uses the native Popover API (top layer, light dismiss) so nothing in the layout shifts.
  */
 export function InfoTip({ label, children }: InfoTipProps) {
@@ -49,9 +50,38 @@ export function InfoTip({ label, children }: InfoTipProps) {
       }
     }
 
+    // With a mouse, hovering opens the tip; touch keeps tap-to-open. A short delay lets the
+    // pointer travel from the button onto the tip without it closing.
+    let closeTimer: number | undefined
+    const isOpen = () => popover.matches(':popover-open')
+    const onEnter = (event: PointerEvent) => {
+      if (event.pointerType !== 'mouse') return
+      window.clearTimeout(closeTimer)
+      if (!isOpen()) popover.showPopover()
+    }
+    const onLeave = (event: PointerEvent) => {
+      if (event.pointerType !== 'mouse') return
+      closeTimer = window.setTimeout(() => isOpen() && popover.hidePopover(), 150)
+    }
+    // A click while hover already opened it would toggle it shut; keep it open instead.
+    const onClick = (event: MouseEvent) => {
+      if (event.detail > 0 && button.matches(':hover') && isOpen()) event.preventDefault()
+    }
+
     popover.addEventListener('toggle', onToggle)
+    for (const el of [button, popover]) {
+      el.addEventListener('pointerenter', onEnter)
+      el.addEventListener('pointerleave', onLeave)
+    }
+    button.addEventListener('click', onClick)
     return () => {
+      window.clearTimeout(closeTimer)
       popover.removeEventListener('toggle', onToggle)
+      for (const el of [button, popover]) {
+        el.removeEventListener('pointerenter', onEnter)
+        el.removeEventListener('pointerleave', onLeave)
+      }
+      button.removeEventListener('click', onClick)
       window.removeEventListener('scroll', hide)
       window.removeEventListener('resize', hide)
     }
