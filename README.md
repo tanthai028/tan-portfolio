@@ -1,31 +1,50 @@
 # tan-portfolio
 
-Personal portfolio. React 19 + TypeScript + CSS Modules on Vite. No UI library.
+My portfolio site: projects, experience, and résumé.
 
-## Run
+**Live:** [tan-portfolio-taupe.vercel.app](https://tan-portfolio-taupe.vercel.app)
+
+![Tan Thai portfolio preview](docs/github-social-preview.png)
+
+React 19 and TypeScript with CSS Modules, built with Vite and hosted on Vercel. No UI library.
+
+## How it was built
+
+I built this with Claude Code, an AI coding agent. I set the requirements, reviewed each change on desktop and phone, and ran user tests from four points of view: a recruiter, a hiring manager, an engineer, and someone skeptical of AI-made work. Those tests drove most of the revisions, from the image viewer to removing copy that read as AI-generated. The site's footer has the same note.
+
+## Run it
 
 ```bash
 npm install
-npm run dev        # local dev server
-npm run build      # typecheck + production build to dist/
-npm run lint       # oxlint
+npm run dev
 ```
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Local dev server |
+| `npm run build` | Typecheck, then production build to `dist/` |
+| `npm run lint` | oxlint |
+
+Every push to `main` deploys to Vercel.
 
 ## Editing content
 
-All copy lives in typed data files. Components never hold content.
+Text lives in typed data files, not in components.
 
-| File                     | What it holds                                   |
-| ------------------------ | ----------------------------------------------- |
-| `src/data/profile.ts`    | Name, role, tagline, availability, links, skills |
-| `src/data/projects.ts`   | Project cards and their dialog details          |
-| `src/data/experience.ts` | Roles and education shown in the About section  |
+| File | Holds |
+| --- | --- |
+| `src/data/profile.ts` | Name, intro line, availability, links, About text, skills |
+| `src/data/projects.ts` | Project cards and the details in each project's pop-up |
+| `src/data/experience.ts` | Jobs and education |
+| `src/data/colophon.ts` | The "How I built this" note in the footer |
 
-Types for all of it are in `src/types/content.ts`. Static files live in `public/`:
+Types are in `src/types/content.ts`. Static files are in `public/`:
 
-- `Tan_Thai_Resume.pdf`: the résumé download
-- `projects/*.webp`: project screenshots. The first image of a project is its card cover; all of them show in its dialog. Phone and popup shots (taller than wide) get a narrower layout automatically.
-- `og.png`: the 1200×630 link-preview image
+- `Tan_Thai_Resume.pdf` is the résumé download.
+- `projects/*.webp` are project screenshots. A project's first image is its card cover, and every image shows in its pop-up, where it opens full size on click.
+- `og.png` is the 1200×630 link preview.
+
+Covers are laid out by shape, so a new screenshot needs only its `width` and `height` in the data file. Wide desktop shots fill the frame, while square popups and tall phone screens get narrower widths (`src/components/work/imageShape.ts`).
 
 ## Structure
 
@@ -33,22 +52,24 @@ Types for all of it are in `src/types/content.ts`. Static files live in `public/
 src/
   components/
     layout/    Header, Footer, Section, ThemeToggle
-    sections/  Hero, Work, About, Contact (one per page section)
-    work/      ProjectCard, ProjectDialog, StatusBadge
-    ui/        Reusable primitives: Button, Dialog, InfoTip, Icon, Reveal, Tag, Toast
+    sections/  Hero, Work, About, Contact
+    work/      ProjectCard, ProjectDialog, StatusBadge, imageShape
+    ui/        Button, Dialog, Lightbox, InfoTip, Icon, Reveal, Tag, Toast
   data/        Site content
   hooks/       useTheme, useActiveSection, useCopyToClipboard
-  styles/      tokens.css (design tokens), global.css (reset + base)
+  styles/      tokens.css (design tokens), global.css (reset and base styles)
   types/       Content model
+docs/          README and GitHub preview images
 ```
 
-## Design decisions
+## Design notes
 
-- **Tokens first.** Colors, type, spacing, and motion are CSS custom properties in `styles/tokens.css`. Components use semantic tokens (`--color-text`), never raw values, so light/dark is one attribute swap on `<html>`.
-- **Light by default.** The saved theme is applied by an inline script in `index.html` before first paint, so there is no flash. Theme switches cross-fade with the View Transitions API.
-- **Overlays, not expanding blocks.** Details open in a native `<dialog>` (focus trap, Escape, top layer for free; bottom sheet on phones). Secondary notes sit behind a `?` using the Popover API. Nothing pushes layout around.
-- **Deep links.** `/#project-<slug>` opens that project's dialog.
-- **One click target per card, real headings.** The card's title is a `<button>` inside an `<h3>`, and its hit area is stretched over the card with `::after`.
-- **Link previews need absolute URLs.** `index.html` uses `%SITE_URL%`, filled at build time by a small Vite plugin from `SITE_URL`, or from Vercel's `VERCEL_PROJECT_PRODUCTION_URL`.
-- **Analytics.** `@vercel/analytics` counts visits (no cookies). Turn it on under the project's Analytics tab in Vercel.
-- **Motion is subtle and optional.** Fade-up on scroll via `IntersectionObserver`; all motion respects `prefers-reduced-motion`.
+- **Tokens.** Colors, type, spacing, and motion are CSS custom properties in `src/styles/tokens.css`. Components only use semantic tokens like `--color-text`, so light and dark mode is one attribute on `<html>`.
+- **Light by default, no flash.** An inline script in `index.html` applies a saved theme before the first paint. Switching themes cross-fades with the View Transitions API.
+- **Nothing shifts the page.** Project and job details open in a native `<dialog>`, which becomes a bottom sheet on phones. Extra notes sit behind small `?` buttons using the Popover API. Screenshots open in a full-screen viewer sized to the screen, so tall phone shots are never cut off.
+- **Deep links.** `/#project-<slug>` opens that project directly.
+- **Cards are one click target with a real heading.** Each card's title is a `<button>` inside an `<h3>`, and its hit area is stretched over the whole card.
+- **Link previews.** `index.html` uses `%SITE_URL%`, which a small Vite plugin fills at build time from `SITE_URL` or Vercel's `VERCEL_PROJECT_PRODUCTION_URL`.
+- **Type.** Geist for text, Geist Mono for small labels, both self-hosted through Fontsource.
+- **Motion.** Content fades in on scroll with `IntersectionObserver`. All motion is turned off under `prefers-reduced-motion`.
+- **Analytics.** `@vercel/analytics` counts visits without cookies. Turn it on in the Vercel project's Analytics tab.
