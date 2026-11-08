@@ -34,15 +34,3 @@ export function Taro() {
     </button>
   )
 }
-
-/**
- * Taro peeking over the top edge of whatever she is placed in. Hover and she ducks back down.
- * Animation: "Le Petit Chat Noir" by Tom Fabre (LottieFiles), recolored.
- */
-export function TaroPeek() {
-  return (
-    <span className={styles.peek} title="Taro">
-      <Lottie src="/taro/taro-peek.json" className={styles.peekCat} />
-    </span>
-  )
-}

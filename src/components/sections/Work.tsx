@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
 import { projects } from '@/data/projects'
-import { TaroPeek } from '@/components/fun/Taro'
 import { Section } from '@/components/layout/Section'
 import { InfoTip } from '@/components/ui/InfoTip'
 import { Reveal } from '@/components/ui/Reveal'
@@ -59,10 +58,8 @@ export function Work() {
               as="li"
               key={project.slug}
               index={wide ? 0 : (i - 1) % 2}
-              className={`${styles.item} ${wide ? styles.featured : ''}`}
+              className={wide ? styles.featured : undefined}
             >
-              {/* Easter egg: Taro peeks over the last card. */}
-              {i === projects.length - 1 && <TaroPeek />}
               <ProjectCard project={project} featured={wide} onOpen={open} />
             </Reveal>
           )
