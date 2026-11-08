@@ -29,7 +29,7 @@ export const profile: Profile = {
   about: [
     'I like building software that saves someone time. Usually that means a Python backend, an internal tool, or a script that replaces a manual step.',
     'I interned at JPMorgan Chase and GE Aerospace. Most of my side projects started as something I wanted for myself, like the job board bot and the résumé matcher on this page.',
-    'Outside of code I play pickleball and Tetris, and I spend too much time in Path of Exile.',
+    'Outside of code I play pickleball, I’m learning Tetris, and I spend too much time in Path of Exile.',
   ],
   skills: [
     { label: 'Languages', items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C#'] },
