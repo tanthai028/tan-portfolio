@@ -1,12 +1,10 @@
 .hero {
-  scroll-snap-align: start;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: var(--space-6);
-  /* 1px short of a full screen: a snap area that fills the screen scrolls freely instead of snapping. */
-  min-height: calc(100svh - var(--header-height) - 1px);
+  min-height: calc(100svh - var(--header-height));
   padding-block: var(--space-12) var(--space-16);
 }
 

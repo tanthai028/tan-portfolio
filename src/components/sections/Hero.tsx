@@ -1,4 +1,5 @@
 import { profile } from '@/data/profile'
+import { useIntroGlide } from '@/hooks/useIntroGlide'
 import { Button } from '@/components/ui/Button'
 import { InfoTip } from '@/components/ui/InfoTip'
 import { Reveal } from '@/components/ui/Reveal'
@@ -7,6 +8,7 @@ import styles from './Hero.module.css'
 
 export function Hero() {
   const { availability } = profile
+  useIntroGlide('work-title')
 
   return (
     <section className={styles.hero} aria-label="Introduction">

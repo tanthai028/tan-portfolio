@@ -1,9 +1,5 @@
 .section {
-  /* Margin, not padding: the snap area is the border box, so a stop lands on the heading.
-     Sections taller than the screen scroll freely inside before the next stop. */
   margin-top: var(--space-section);
-  scroll-snap-align: start;
-  scroll-margin-top: var(--space-8);
 }
 
 .heading {

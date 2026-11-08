@@ -15,9 +15,6 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
   scrollbar-gutter: stable;
-  /* Each section is a stop: one scroll moves between sections. Stops are marked with
-     scroll-snap-align on the hero and on Section. */
-  scroll-snap-type: y mandatory;
 }
 
 /* Keep the page still while a modal is open. */
