@@ -29,13 +29,13 @@ export const profile: Profile = {
   about: [
     'I like building software that saves someone time. Usually that means a Python backend, an internal tool, or a script that replaces a manual step.',
     'I interned at JPMorgan Chase and GE Aerospace. Most of my side projects started as something I wanted for myself, like the job board bot and the résumé matcher on this page.',
-    'Outside of code I play pickleball, I’m learning Tetris, and I spend too much time in Path of Exile.',
+    'Outside of code I play Pickleball, I’m learning Tetris, and I spend too much time in Path of Exile.',
   ],
   aboutTerms: [
     {
-      term: 'pickleball',
+      term: 'Pickleball',
       text: 'A paddle sport that mixes tennis, badminton and ping-pong, played with a plastic ball on a small court. Fun fact: it was invented in 1965 on Bainbridge Island, Washington, by three dads keeping their kids busy over the summer.',
-      link: { label: 'What is pickleball? (USA Pickleball)', href: 'https://usapickleball.org/what-is-pickleball/' },
+      link: { label: 'What is Pickleball? (USA Pickleball)', href: 'https://usapickleball.org/what-is-pickleball/' },
     },
     {
       term: 'Tetris',
