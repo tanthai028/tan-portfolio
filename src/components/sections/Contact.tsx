@@ -13,7 +13,9 @@ export function Contact() {
   return (
     <Section id="contact" title="Contact">
       <Reveal className={styles.card}>
-        <p className={styles.prompt}>Email is the best way to reach me.</p>
+        <p className={styles.prompt}>
+          <a href="mailto:tanthai028@gmail.com">tanthai028@gmail.com</a>
+        </p>
 
         <div className={styles.emailRow}>
           <a href={`mailto:${profile.email}`} className={styles.email}>

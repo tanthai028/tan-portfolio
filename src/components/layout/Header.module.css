@@ -51,6 +51,12 @@
   height: 1.75rem;
   border-radius: var(--radius-full);
   object-fit: cover;
+  transition: rotate var(--duration-base) var(--ease-out);
+}
+
+/* A small tilt hints the avatar does something. */
+.brand:hover .avatar {
+  rotate: -10deg;
 }
 
 .navWrap {
