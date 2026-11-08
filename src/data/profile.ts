@@ -39,13 +39,13 @@ export const profile: Profile = {
     },
     {
       term: 'Tetris',
-      text: 'The falling-block puzzle game from 1984. You rotate seven shapes as they drop and fit them into full rows, which then clear. It gets faster as you go.',
-      link: { label: 'Play it at tetris.com', href: 'https://tetris.com/' },
+      text: 'The falling-block puzzle game from 1984. You rotate seven shapes as they drop and fit them into full rows, which then clear. I play modern, competitive Tetris on TETR.IO, a free browser version.',
+      link: { label: 'TETR.IO', href: 'https://tetr.io/' },
     },
     {
       term: 'Path of Exile',
-      text: 'A free online action RPG: you fight through dark fantasy maps and build a character from a passive skill tree with over 1,300 choices. Planning builds is half the game.',
-      link: { label: 'pathofexile.com', href: 'https://www.pathofexile.com/' },
+      text: 'An online action RPG: you fight through dark fantasy maps and build a character from a huge passive skill tree. Planning builds is half the game. I play the sequel, Path of Exile 2.',
+      link: { label: 'pathofexile2.com', href: 'https://pathofexile2.com/' },
     },
   ],
   skills: [
