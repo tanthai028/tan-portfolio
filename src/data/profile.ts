@@ -18,7 +18,7 @@ export const profile: Profile = {
     label: 'Open to entry-level roles in Tampa Bay or remote',
     detail: 'Backend, internal tools, platform, automation or data engineering. Anywhere in Florida works too. U.S. citizen.',
   },
-  email: 'tanthai028.jobs@gmail.com',
+  email: 'tanthai028@gmail.com',
   resumeUrl: '/Tan_Thai_Resume.pdf',
   sourceUrl: 'https://github.com/tanthai028/tan-portfolio',
   socials: [
