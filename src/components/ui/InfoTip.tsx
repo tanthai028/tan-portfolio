@@ -30,9 +30,21 @@ export function InfoTip({ label, children }: InfoTipProps) {
       const anchor = button.getBoundingClientRect()
       const { width, height } = popover.getBoundingClientRect()
       const maxLeft = window.innerWidth - width - VIEWPORT_MARGIN
-      const left = Math.max(VIEWPORT_MARGIN, Math.min(anchor.left + anchor.width / 2 - width / 2, maxLeft))
-      const fitsBelow = anchor.bottom + OFFSET + height < window.innerHeight - VIEWPORT_MARGIN
-      const top = fitsBelow ? anchor.bottom + OFFSET : anchor.top - OFFSET - height
+      const maxTop = window.innerHeight - height - VIEWPORT_MARGIN
+      // To the right of the button, centered on it. On narrow screens with no room there,
+      // fall back to below it (or above, near the bottom of the screen).
+      const fitsRight = anchor.right + OFFSET + width <= window.innerWidth - VIEWPORT_MARGIN
+      let left: number
+      let top: number
+      if (fitsRight) {
+        left = anchor.right + OFFSET
+        top = Math.max(VIEWPORT_MARGIN, Math.min(anchor.top + anchor.height / 2 - height / 2, maxTop))
+      } else {
+        left = Math.max(VIEWPORT_MARGIN, Math.min(anchor.left + anchor.width / 2 - width / 2, maxLeft))
+        const fitsBelow = anchor.bottom + OFFSET + height < window.innerHeight - VIEWPORT_MARGIN
+        top = fitsBelow ? anchor.bottom + OFFSET : anchor.top - OFFSET - height
+      }
+      popover.dataset.side = fitsRight ? 'right' : 'below'
       popover.style.left = `${left}px`
       popover.style.top = `${top}px`
     }

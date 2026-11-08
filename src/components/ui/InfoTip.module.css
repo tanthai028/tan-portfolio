@@ -66,3 +66,18 @@
     translate: 0 4px;
   }
 }
+
+/* Beside the button it slides in from the left instead of from below. */
+.popover[data-side='right'] {
+  translate: -4px 0;
+}
+
+.popover[data-side='right']:popover-open {
+  translate: 0 0;
+}
+
+@starting-style {
+  .popover[data-side='right']:popover-open {
+    translate: -4px 0;
+  }
+}
