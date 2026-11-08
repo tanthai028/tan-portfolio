@@ -35,17 +35,17 @@ export const profile: Profile = {
     {
       term: 'pickleball',
       text: 'A paddle sport that mixes tennis, badminton and ping-pong, played with a plastic ball on a small court. Fun fact: it was invented in 1965 on Bainbridge Island, Washington, by three dads keeping their kids busy over the summer.',
-      link: { label: 'Pickleball on Wikipedia', href: 'https://en.wikipedia.org/wiki/Pickleball' },
+      link: { label: 'What is pickleball? (USA Pickleball)', href: 'https://usapickleball.org/what-is-pickleball/' },
     },
     {
       term: 'Tetris',
       text: 'The falling-block puzzle game from 1984. You rotate seven shapes as they drop and fit them into full rows, which then clear. It gets faster as you go.',
-      link: { label: 'Tetris on Wikipedia', href: 'https://en.wikipedia.org/wiki/Tetris' },
+      link: { label: 'Play it at tetris.com', href: 'https://tetris.com/' },
     },
     {
       term: 'Path of Exile',
       text: 'A free online action RPG: you fight through dark fantasy maps and build a character from a passive skill tree with over 1,300 choices. Planning builds is half the game.',
-      link: { label: 'Path of Exile on Wikipedia', href: 'https://en.wikipedia.org/wiki/Path_of_Exile' },
+      link: { label: 'pathofexile.com', href: 'https://www.pathofexile.com/' },
     },
   ],
   skills: [
