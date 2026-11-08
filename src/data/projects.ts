@@ -221,10 +221,10 @@ export const projects: Project[] = [
     status: 'live',
     images: [
       {
-        src: '/projects/ytbookmarks-cover.webp',
-        alt: 'YTBookmarks on a YouTube video: labeled pins stacked on the progress bar, and the bookmark sidebar',
-        width: 1353,
-        height: 664,
+        src: '/projects/ytbookmarks-exilecon.webp',
+        alt: 'YTBookmarks on the ExileCon 2026 livestream: pins labeled Keynote, Live demo, Trailer and Q&A on the progress bar, and the same four in the bookmark sidebar',
+        width: 1334,
+        height: 752,
       },
     ],
     problem:
