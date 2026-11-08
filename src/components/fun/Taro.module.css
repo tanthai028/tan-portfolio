@@ -21,10 +21,6 @@
   transform-origin: 50% 100%;
 }
 
-.taro:hover .cat {
-  scale: 1.04;
-}
-
 .taro:active .cat {
   scale: 0.97;
 }
