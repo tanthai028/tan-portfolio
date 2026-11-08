@@ -32,7 +32,16 @@ export interface Profile {
   sourceUrl?: string
   socials: Link[]
   about: string[]
+  /** Words in `about` that get a hover explanation, for readers who don't know them. */
+  aboutTerms?: Term[]
   skills: SkillGroup[]
+}
+
+export interface Term {
+  /** Exact text in `about` to attach the tip to. */
+  term: string
+  text: string
+  link?: Link
 }
 
 export interface SkillGroup {

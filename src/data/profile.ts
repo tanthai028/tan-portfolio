@@ -31,6 +31,23 @@ export const profile: Profile = {
     'I interned at JPMorgan Chase and GE Aerospace. Most of my side projects started as something I wanted for myself, like the job board bot and the résumé matcher on this page.',
     'Outside of code I play pickleball, I’m learning Tetris, and I spend too much time in Path of Exile.',
   ],
+  aboutTerms: [
+    {
+      term: 'pickleball',
+      text: 'A paddle sport that mixes tennis, badminton and ping-pong, played with a plastic ball on a small court. Fun fact: it was invented in 1965 on Bainbridge Island, Washington, by three dads keeping their kids busy over the summer.',
+      link: { label: 'Pickleball on Wikipedia', href: 'https://en.wikipedia.org/wiki/Pickleball' },
+    },
+    {
+      term: 'Tetris',
+      text: 'The falling-block puzzle game from 1984. You rotate seven shapes as they drop and fit them into full rows, which then clear. It gets faster as you go.',
+      link: { label: 'Tetris on Wikipedia', href: 'https://en.wikipedia.org/wiki/Tetris' },
+    },
+    {
+      term: 'Path of Exile',
+      text: 'A free online action RPG: you fight through dark fantasy maps and build a character from a passive skill tree with over 1,300 choices. Planning builds is half the game.',
+      link: { label: 'Path of Exile on Wikipedia', href: 'https://en.wikipedia.org/wiki/Path_of_Exile' },
+    },
+  ],
   skills: [
     { label: 'Languages', items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C#'] },
     { label: 'Backend & data', items: ['FastAPI', 'Node.js', '.NET', 'BigQuery', 'SQLite'] },

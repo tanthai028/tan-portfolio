@@ -81,3 +81,28 @@
     translate: -4px 0;
   }
 }
+
+/* Word trigger: reads as part of the sentence, with a dotted underline to hint at the tip. */
+.term {
+  color: inherit;
+  font: inherit;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--color-text-muted);
+  text-underline-offset: 0.2em;
+  cursor: help;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.term:hover,
+.term:focus-visible {
+  color: var(--color-text);
+  text-decoration-style: solid;
+}
+
+.popover a {
+  display: inline-block;
+  margin-top: var(--space-2);
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

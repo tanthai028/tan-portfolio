@@ -5,6 +5,8 @@ import styles from './InfoTip.module.css'
 interface InfoTipProps {
   /** What the tip is about. Used for the button's accessible name. */
   label: string
+  /** Show this word as the trigger, underlined, instead of the "?" button. */
+  term?: string
   children: ReactNode
 }
 
@@ -12,11 +14,11 @@ const VIEWPORT_MARGIN = 12
 const OFFSET = 8
 
 /**
- * A small "?" button that reveals secondary detail in a floating popover: on hover with a mouse,
- * on tap with touch.
+ * A small "?" button (or an underlined word, with `term`) that reveals secondary detail in a
+ * floating popover: on hover with a mouse, on tap with touch.
  * Uses the native Popover API (top layer, light dismiss) so nothing in the layout shifts.
  */
-export function InfoTip({ label, children }: InfoTipProps) {
+export function InfoTip({ label, term, children }: InfoTipProps) {
   const id = useId()
   const buttonRef = useRef<HTMLButtonElement>(null)
   const popoverRef = useRef<HTMLSpanElement>(null)
@@ -104,11 +106,11 @@ export function InfoTip({ label, children }: InfoTipProps) {
       <button
         ref={buttonRef}
         type="button"
-        className={styles.trigger}
+        className={term ? styles.term : styles.trigger}
         popoverTarget={id}
-        aria-label={`More about ${label}`}
+        aria-label={term ? undefined : `More about ${label}`}
       >
-        <Icon name="question" size={14} />
+        {term ?? <Icon name="question" size={14} />}
       </button>
       <span ref={popoverRef} id={id} popover="auto" className={styles.popover}>
         {children}

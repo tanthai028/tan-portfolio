@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { education, experience } from '@/data/experience'
 import { profile } from '@/data/profile'
-import type { Experience } from '@/types/content'
+import type { Experience, Term } from '@/types/content'
 import { Section } from '@/components/layout/Section'
 import { Dialog } from '@/components/ui/Dialog'
 import { Icon } from '@/components/ui/Icon'
+import { InfoTip } from '@/components/ui/InfoTip'
 import { Reveal } from '@/components/ui/Reveal'
 import { TagList } from '@/components/ui/Tag'
 import styles from './About.module.css'
@@ -20,7 +21,7 @@ export function About() {
       <div className={styles.layout}>
         <Reveal className={styles.bio}>
           {profile.about.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+            <p key={paragraph}>{withTerms(paragraph, profile.aboutTerms ?? [])}</p>
           ))}
         </Reveal>
 
@@ -71,6 +72,29 @@ export function About() {
       </Dialog>
     </Section>
   )
+}
+
+/** Splits a paragraph so each glossary term becomes a hover tip. */
+function withTerms(text: string, terms: Term[]) {
+  if (terms.length === 0) return text
+  const escaped = terms.map((t) => t.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  return text.split(new RegExp(`(${escaped.join('|')})`)).map((part, i) => {
+    const term = terms.find((t) => t.term === part)
+    if (!term) return part
+    return (
+      <InfoTip key={i} label={term.term} term={term.term}>
+        {term.text}
+        {term.link && (
+          <>
+            <br />
+            <a href={term.link.href} target="_blank" rel="noreferrer">
+              {term.link.label}
+            </a>
+          </>
+        )}
+      </InfoTip>
+    )
+  })
 }
 
 interface RoleListProps {
