@@ -41,7 +41,7 @@ export interface SkillGroup {
 }
 
 export interface ProjectImage {
-  /** Path under `public/`, e.g. `/projects/tetrain-quiz.webp`. */
+  /** Path under `public/`, e.g. `/projects/tetrain-quiz-mobile.webp`. */
   src: string
   alt: string
   width: number

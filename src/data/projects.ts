@@ -58,16 +58,16 @@ export const projects: Project[] = [
     status: 'live',
     images: [
       {
-        src: '/projects/tetrain-quiz.webp',
-        alt: 'Quiz mode: an orange color swatch above seven gray Tetris pieces to choose from',
-        width: 1053,
-        height: 666,
+        src: '/projects/tetrain-learn-mobile.webp',
+        alt: 'Learn mode on a phone: all seven pieces shown in their four rotations',
+        width: 780,
+        height: 1688,
       },
       {
-        src: '/projects/tetrain-learn.webp',
-        alt: 'Learn mode: all seven pieces shown in their four rotations',
-        width: 1057,
-        height: 615,
+        src: '/projects/tetrain-quiz-mobile.webp',
+        alt: 'Quiz mode on a phone: a purple color swatch above seven gray Tetris pieces to choose from',
+        width: 780,
+        height: 1240,
       },
       {
         src: '/projects/tetrain-stats.webp',
