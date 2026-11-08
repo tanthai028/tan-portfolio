@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { colophon } from '@/data/colophon'
 import { profile } from '@/data/profile'
+import { Taro } from '@/components/fun/Taro'
 import { Dialog } from '@/components/ui/Dialog'
 import { TagList } from '@/components/ui/Tag'
 import styles from './Footer.module.css'
@@ -12,6 +13,9 @@ export function Footer() {
 
   return (
     <footer className={styles.footer}>
+      <div className={styles.taroSpot}>
+        <Taro />
+      </div>
       <p>
         © {YEAR} {profile.name}
       </p>

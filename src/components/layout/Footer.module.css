@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -9,6 +10,14 @@
   border-top: 1px solid var(--color-border);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
+}
+
+.taroSpot {
+  position: absolute;
+  right: var(--space-8);
+  bottom: 100%;
+  /* The cat sits low in her frame; pull the frame down so she rests on the line. */
+  margin-bottom: -3rem;
 }
 
 .links {

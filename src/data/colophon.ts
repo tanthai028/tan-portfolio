@@ -22,6 +22,12 @@ export const colophon = {
         'Reviewed changes on desktop and phone before they shipped.',
       ],
     },
+    {
+      title: 'Credits',
+      items: [
+        'Taro the cat uses two free LottieFiles animations, recolored as a British Shorthair: "Cat is sleeping and rolling" by Cảnh Ngô and "Le Petit Chat Noir" by Tom Fabre.',
+      ],
+    },
   ],
   stack: ['React', 'TypeScript', 'CSS Modules', 'Vite', 'Vercel'],
 }

@@ -55,6 +55,7 @@ src/
     layout/    Header, Footer, Section, ThemeToggle
     sections/  Hero, Work, About, Contact
     work/      ProjectCard, ProjectDialog, StatusBadge, imageShape
+    fun/       Taro the cat, Lottie player, Tetris easter egg
     ui/        Button, Dialog, Lightbox, InfoTip, Icon, Reveal, ScrollCue, Tag, Toast
   data/        Site content
   hooks/       useTheme, useActiveSection, useScrolled, useCopyToClipboard
@@ -73,4 +74,5 @@ docs/          README and GitHub preview images
 - **Link previews.** `index.html` uses `%SITE_URL%`, which a small Vite plugin fills at build time from `SITE_URL` or Vercel's `VERCEL_PROJECT_PRODUCTION_URL`.
 - **Type.** Geist for text, Geist Mono for small labels, both self-hosted through Fontsource.
 - **Motion.** Content fades in on scroll with `IntersectionObserver`. All motion is turned off under `prefers-reduced-motion`.
+- **Easter eggs.** Taro, a British Shorthair, sleeps on the footer (click to pet her) and peeks over the last project card. Three quick clicks on the header avatar drop Tetris pieces. Taro's animations are free LottieFiles files (`public/taro/`), recolored, and the Lottie player loads only when she is about to appear.
 - **Analytics.** `@vercel/analytics` counts visits without cookies. Turn it on in the Vercel project's Analytics tab.

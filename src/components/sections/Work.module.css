@@ -1,3 +1,7 @@
+.item {
+  position: relative;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
