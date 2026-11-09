@@ -47,7 +47,8 @@
 }
 
 .dialog[open]::backdrop {
-  opacity: 1;
+  /* Fades with the sheet while it is swiped down (see useSwipeToClose in Dialog.tsx). */
+  opacity: calc(1 - var(--sheet-drag, 0));
 }
 
 @starting-style {
