@@ -3,3 +3,9 @@
   list-style: none;
   border-bottom: 1px solid var(--color-border);
 }
+
+/* No divider above the first project: the section heading already starts the list. */
+.list > li:first-child > * {
+  border-top: 0;
+  padding-top: 0;
+}
