@@ -4,6 +4,10 @@
  */
 .row {
   position: relative;
+  /* On touch screens, a tap or long press shouldn't flash, select text, or pop up the image menu. */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
@@ -43,9 +47,6 @@
   opacity: 1;
 }
 
-.row:hover .media img {
-  scale: 1.03;
-}
 
 .body {
   display: flex;
@@ -137,13 +138,20 @@
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.row:hover .title {
-  color: var(--color-accent);
-}
+/* Hover effects only for a real mouse, so they don't stick after a tap on a phone. */
+@media (hover: hover) and (pointer: fine) {
+  .row:hover .media img {
+    scale: 1.03;
+  }
 
-.row:hover .arrow {
-  color: var(--color-accent);
-  translate: 2px -2px;
+  .row:hover .title {
+    color: var(--color-accent);
+  }
+
+  .row:hover .arrow {
+    color: var(--color-accent);
+    translate: 2px -2px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
