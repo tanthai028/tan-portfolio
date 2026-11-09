@@ -4,7 +4,7 @@ import type { Project } from '@/types/content'
 export const projects: Project[] = [
   {
     slug: 'rj-tracker',
-    title: 'Careers Page Monitor',
+    title: 'Job Board Monitor',
     kind: 'Automation bot',
     summary: 'Watches the Raymond James job board and posts new openings to Discord twice a week.',
     date: 'Jun 2026',
