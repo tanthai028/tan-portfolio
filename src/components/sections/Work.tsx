@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { projects } from '@/data/projects'
 import { Section } from '@/components/layout/Section'
-import { InfoTip } from '@/components/ui/InfoTip'
 import { Reveal } from '@/components/ui/Reveal'
 import { ProjectCard } from '@/components/work/ProjectCard'
 import { ProjectDialog } from '@/components/work/ProjectDialog'
@@ -39,7 +38,6 @@ export function Work() {
     <Section
       id="work"
       title="Projects"
-      aside={<InfoTip label="projects">Open a project for screenshots and details.</InfoTip>}
     >
       <ul className={styles.list}>
         {projects.map((project, i) => (
