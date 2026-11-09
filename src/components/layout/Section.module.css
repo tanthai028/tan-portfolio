@@ -6,7 +6,8 @@
   display: flex;
   align-items: baseline;
   gap: var(--space-3);
-  margin-bottom: var(--space-12);
+  /* Matches the gap above the heading after a nav jump (scroll-padding-top in global.css). */
+  margin-bottom: var(--space-8);
 }
 
 .title {
