@@ -96,7 +96,7 @@ export const projects: Project[] = [
     stack: ['JavaScript (ES modules)', 'HTML/CSS', 'Web Audio API', 'Node test runner', 'Vercel'],
     links: [
       { label: 'Play it', href: 'https://tetrain.vercel.app' },
-      { label: 'GitHub', href: 'https://github.com/tanthai028/tetrain#readme' },
+      { label: 'GitHub', href: 'https://github.com/tanthai028/TETRAIN#readme' },
     ],
   },
   {
