@@ -90,7 +90,8 @@
   display: inline-block;
   width: 0.8em;
   height: 0.8em;
-  margin-inline-end: 0.3em;
+  /* On top of the word space before it, so the logo isn't crowded against the previous word. */
+  margin-inline: 0.15em 0.3em;
   vertical-align: -0.045em;
   color: var(--color-text);
 }
