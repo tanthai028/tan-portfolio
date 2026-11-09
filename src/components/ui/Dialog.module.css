@@ -166,6 +166,14 @@
   }
 
   .footer {
+    flex-wrap: nowrap;
     padding: var(--space-4) var(--space-4) calc(var(--space-4) + env(safe-area-inset-bottom));
+  }
+
+  /* Links share one row and split the width, with tighter padding so both labels fit. */
+  .footer > :is(a, button) {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-inline: var(--space-3);
   }
 }

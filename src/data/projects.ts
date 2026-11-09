@@ -44,7 +44,7 @@ export const projects: Project[] = [
     stack: ['Python', 'requests', 'GitHub Actions', 'GitHub Pages', 'Workday API', 'Discord webhooks'],
     links: [
       { label: 'Live report', href: 'https://tanthai028.github.io/RJTracker/' },
-      { label: 'Code and write-up', href: 'https://github.com/tanthai028/RJTracker#readme' },
+      { label: 'GitHub', href: 'https://github.com/tanthai028/RJTracker#readme' },
     ],
   },
   {
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     stack: ['JavaScript (ES modules)', 'HTML/CSS', 'Web Audio API', 'Node test runner', 'Vercel'],
     links: [
       { label: 'Play it', href: 'https://tetrain.vercel.app' },
-      { label: 'Code and write-up', href: 'https://github.com/tanthai028/tetrain#readme' },
+      { label: 'GitHub', href: 'https://github.com/tanthai028/tetrain#readme' },
     ],
   },
   {
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Supabase', 'Vitest'],
     links: [
       { label: 'Try it', href: 'https://trailcards.vercel.app' },
-      { label: 'Code and write-up', href: 'https://github.com/tanthai028/Trailcards#readme' },
+      { label: 'GitHub', href: 'https://github.com/tanthai028/Trailcards#readme' },
     ],
   },
   {
@@ -169,7 +169,7 @@ export const projects: Project[] = [
       'A Node script runs saved postings through the scorer and prints why each résumé won or lost.',
     ],
     stack: ['JavaScript', 'Chrome Manifest V3', 'chrome.storage', 'Node.js'],
-    links: [{ label: 'Code and write-up', href: 'https://github.com/tanthai028/Resumatch#readme' }],
+    links: [{ label: 'GitHub', href: 'https://github.com/tanthai028/Resumatch#readme' }],
   },
   {
     slug: 'tubescript',
@@ -205,7 +205,7 @@ export const projects: Project[] = [
       "Offer YouTube's auto-translated caption tracks.",
     ],
     stack: ['TypeScript', 'React 19', 'Chrome Manifest V3', 'esbuild', 'Node test runner', 'Vercel'],
-    links: [{ label: 'Code and write-up', href: 'https://github.com/tanthai028/yt-transcriber#readme' }],
+    links: [{ label: 'GitHub', href: 'https://github.com/tanthai028/yt-transcriber#readme' }],
     tryLocally: [
       'Clone the repo and run `npm install`, then `npm run build`. Needs Node 24.',
       'Open `chrome://extensions` and turn on Developer mode.',
@@ -253,7 +253,7 @@ export const projects: Project[] = [
         label: 'Chrome Web Store',
         href: 'https://chromewebstore.google.com/detail/ytbookmarks/jkiapphfienejigejenmajblkimmclcl',
       },
-      { label: 'Code and write-up', href: 'https://github.com/tanthai028/YTBookmark#readme' },
+      { label: 'GitHub', href: 'https://github.com/tanthai028/YTBookmark#readme' },
     ],
   },
 ]
