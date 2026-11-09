@@ -130,6 +130,7 @@ export const projects: Project[] = [
     ],
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Supabase', 'Vitest'],
     links: [{ label: 'Try it', href: 'https://trailcards.vercel.app' }],
+    codeNote: 'The code is private. I’m happy to walk through it.',
   },
   {
     slug: 'resumatch',
@@ -167,6 +168,7 @@ export const projects: Project[] = [
     ],
     stack: ['JavaScript', 'Chrome Manifest V3', 'chrome.storage', 'Node.js'],
     links: [],
+    codeNote: 'The code is private for now. I’m happy to walk through it.',
   },
   {
     slug: 'tubescript',

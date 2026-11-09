@@ -3,8 +3,8 @@ import type { Experience } from '@/types/content'
 /** Most recent first. */
 export const experience: Experience[] = [
   {
-    company: 'Personal projects',
-    title: 'Software Developer',
+    company: 'Self-directed',
+    title: 'Independent projects',
     period: 'Since 2023',
     summary: 'Tools I build for myself, plus coursework in Python automation and AWS.',
     points: [
