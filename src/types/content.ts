@@ -10,8 +10,6 @@ export interface Profile {
   role: string
   /** One sentence. Shown large in the hero. */
   tagline: string
-  /** Optional second line under the tagline, smaller and quieter. */
-  taglineDetail?: string
   location: string
   photo: {
     /** Small square face crop for the header. */

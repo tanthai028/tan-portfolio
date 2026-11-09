@@ -26,7 +26,6 @@ export function Hero() {
 
       <Reveal index={2} className={styles.tagline}>
         <p>{profile.tagline}</p>
-        {profile.taglineDetail && <p className={styles.taglineDetail}>{profile.taglineDetail}</p>}
       </Reveal>
 
       <Reveal index={3} className={styles.actions}>

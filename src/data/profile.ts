@@ -4,7 +4,6 @@ export const profile: Profile = {
   name: 'Tan Thai',
   role: 'Software Engineer',
   tagline: 'I build software that takes boring, repetitive work off people’s hands.',
-  taglineDetail: 'CS grad, USF 2024. Interned at JPMorgan Chase and GE Aerospace.',
   location: 'St. Petersburg, FL',
   photo: {
     avatar: '/tan-avatar.webp',
