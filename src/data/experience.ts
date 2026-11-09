@@ -65,7 +65,7 @@ export const education: Experience[] = [
     company: 'University of South Florida',
     title: 'B.S. Computer Science',
     period: '2024',
-    logo: 'school',
+    logo: 'usf',
     summary: 'Tampa, FL. Graduated May 2024 with a 3.46 GPA.',
     points: ['Best Financial Hack, Capital One Challenge at UF SwampHacks VII (314 participants).'],
     stack: [],

@@ -180,6 +180,13 @@
   object-fit: cover;
 }
 
+/* The bull keeps its own colors and shape, so it sits inside the circle instead of filling it. */
+.logo .usf {
+  width: 1.125rem;
+  height: auto;
+  object-fit: contain;
+}
+
 .company {
   color: var(--color-text-muted);
 }

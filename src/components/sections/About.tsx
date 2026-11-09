@@ -3,7 +3,7 @@ import { education, experience } from '@/data/experience'
 import { profile } from '@/data/profile'
 import type { CompanyLogo, Experience, Term } from '@/types/content'
 import { Section } from '@/components/layout/Section'
-import { BrandIcon } from '@/components/ui/BrandIcon'
+import { BrandIcon, brandColors } from '@/components/ui/BrandIcon'
 import { Dialog } from '@/components/ui/Dialog'
 import { Icon } from '@/components/ui/Icon'
 import { InfoTip } from '@/components/ui/InfoTip'
@@ -89,7 +89,7 @@ function withLogos(text: string, logos: CompanyLogo[]) {
     if (!company) return part
     return (
       <span key={i} className={styles.inlineCompany}>
-        <BrandIcon name={company.logo} size={16} />
+        <BrandIcon name={company.logo} size={16} style={{ color: brandColors[company.logo] }} />
         {part}
       </span>
     )
@@ -126,10 +126,10 @@ function RoleLogo({ logo }: { logo: Experience['logo'] }) {
     <span className={styles.logo} aria-hidden="true">
       {logo === 'self' ? (
         <img src={profile.photo.avatar} alt="" width={20} height={20} />
-      ) : logo === 'school' ? (
-        <Icon name="school" size={18} />
+      ) : logo === 'usf' ? (
+        <img src="/logos/usf.webp" alt="" width={20} height={16} className={styles.usf} />
       ) : (
-        <BrandIcon name={logo} size={16} />
+        <BrandIcon name={logo} size={16} style={{ color: brandColors[logo] }} />
       )}
     </span>
   )

@@ -1,8 +1,8 @@
 import type { SVGProps } from 'react'
 
 /**
- * Brand marks, filled, from Simple Icons (CC0, simpleicons.org). Drawn in currentColor so they
- * follow the theme instead of each brand's own color.
+ * Brand marks, filled, from Simple Icons (CC0, simpleicons.org). Drawn in currentColor, so a
+ * caller picks the theme color or the brand's own color from `brandColors`.
  */
 const paths = {
   // GitHub
@@ -18,6 +18,15 @@ const paths = {
 } as const
 
 export type BrandName = keyof typeof paths
+
+/** Each brand's own color, from Simple Icons. */
+export const brandColors: Record<BrandName, string> = {
+  github: '#181717',
+  linkedin: '#0A66C2',
+  devpost: '#003E54',
+  ge: '#0870D8',
+  chase: '#117ACA',
+}
 
 interface BrandIconProps extends SVGProps<SVGSVGElement> {
   name: BrandName

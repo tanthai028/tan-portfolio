@@ -27,12 +27,6 @@ const paths = {
     </>
   ),
   download: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
-  school: (
-    <>
-      <path d="M2 9.5 12 5l10 4.5L12 14 2 9.5Z" />
-      <path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5M22 9.5V15" />
-    </>
-  ),
 } as const
 
 export type IconName = keyof typeof paths

@@ -102,8 +102,8 @@ export interface Experience {
   company: string
   title: string
   period: string
-  /** Mark beside the name: a company logo, the site avatar ("self"), or a graduation cap ("school"). */
-  logo?: 'ge' | 'chase' | 'self' | 'school'
+  /** Mark beside the name: a company logo, the USF bull, or the site avatar ("self"). */
+  logo?: 'ge' | 'chase' | 'usf' | 'self'
   summary: string
   /** Shown in the dialog. */
   points: string[]
