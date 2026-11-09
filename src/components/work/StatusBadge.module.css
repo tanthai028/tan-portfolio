@@ -16,7 +16,8 @@
   width: 0.4375rem;
   height: 0.4375rem;
   border-radius: var(--radius-full);
-  background: #7d9a7a;
+  background: var(--color-live);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--color-live) 60%, transparent);
 }
 
 /* Live projects get a soft ring that grows and fades, like a heartbeat. */
@@ -31,7 +32,7 @@
 
 @keyframes pulse {
   0% {
-    opacity: 0.6;
+    opacity: 0.8;
     scale: 1;
   }
   70%,
@@ -43,6 +44,7 @@
 
 .badge[data-status='in-progress'] .dot {
   background: #c99a4b;
+  box-shadow: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -25,7 +25,8 @@
 }
 
 .dot[data-open='true'] {
-  background: #7d9a7a;
+  background: var(--color-live);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--color-live) 60%, transparent);
 }
 
 .title {

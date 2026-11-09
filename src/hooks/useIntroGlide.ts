@@ -39,6 +39,8 @@ export function useIntroGlide(targetId: string) {
 
     const onWheel = (event: WheelEvent) => {
       if (event.ctrlKey) return // pinch zoom
+      // A modal is open: the page is locked, and scrolling belongs to the modal.
+      if (document.querySelector('dialog[open]')) return
       if (animating) {
         event.preventDefault()
         return
