@@ -129,8 +129,10 @@ export const projects: Project[] = [
       'Most of the 78 commits are phone UX fixes, like making every card fit on one screen without scrolling inside it.',
     ],
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Supabase', 'Vitest'],
-    links: [{ label: 'Try it', href: 'https://trailcards.vercel.app' }],
-    codeNote: 'The code is private. I’m happy to walk through it.',
+    links: [
+      { label: 'Try it', href: 'https://trailcards.vercel.app' },
+      { label: 'Code and write-up', href: 'https://github.com/tanthai028/Trailcards#readme' },
+    ],
   },
   {
     slug: 'resumatch',
@@ -167,8 +169,7 @@ export const projects: Project[] = [
       'A Node script runs saved postings through the scorer and prints why each résumé won or lost.',
     ],
     stack: ['JavaScript', 'Chrome Manifest V3', 'chrome.storage', 'Node.js'],
-    links: [],
-    codeNote: 'The code is private for now. I’m happy to walk through it.',
+    links: [{ label: 'Code and write-up', href: 'https://github.com/tanthai028/Resumatch#readme' }],
   },
   {
     slug: 'tubescript',
