@@ -54,7 +54,7 @@ src/
   components/
     layout/    Header, Footer, Section, ThemeToggle
     sections/  Hero, Work, About, Contact
-    work/      ProjectCard, ProjectDialog, StatusBadge, imageShape
+    work/      ProjectCard, ProjectDialog, StatusBadge
     fun/       Taro the cat and the Lottie player
     ui/        Button, Dialog, Lightbox, InfoTip, Icon, Reveal, ScrollCue, Tag, Toast
   data/        Site content
@@ -70,7 +70,7 @@ docs/          README and GitHub preview images
 - **Light by default, no flash.** An inline script in `index.html` applies a saved theme before the first paint. Switching themes cross-fades with the View Transitions API.
 - **Nothing shifts the page.** Project and job details open in a native `<dialog>`, which becomes a bottom sheet on phones. Extra notes sit behind small `?` buttons using the Popover API. Screenshots open in a full-screen viewer sized to the screen, so tall phone shots are never cut off.
 - **Deep links.** `/#project-<slug>` opens that project directly.
-- **Cards are one click target with a real heading.** Each card's title is a `<button>` inside an `<h3>`, and its hit area is stretched over the whole card.
+- **Project rows are one click target with a real heading.** Each row's title is a `<button>` inside an `<h3>`, and its hit area is stretched over the whole row. Every row is the same size, so no project looks featured by layout alone.
 - **Link previews.** `index.html` uses `%SITE_URL%`, which a small Vite plugin fills at build time from `SITE_URL` or Vercel's `VERCEL_PROJECT_PRODUCTION_URL`.
 - **Type.** Geist for text, Geist Mono for small labels, both self-hosted through Fontsource.
 - **Motion.** Content fades in on scroll with `IntersectionObserver`. All motion is turned off under `prefers-reduced-motion`.

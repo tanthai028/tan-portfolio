@@ -1,13 +1,11 @@
-import type { CSSProperties } from 'react'
 import type { Project } from '@/types/content'
 import { Icon } from '@/components/ui/Icon'
-import { StatusBadge } from './StatusBadge'
-import { imageShape } from './imageShape'
 import styles from './ProjectCard.module.css'
 
 interface ProjectCardProps {
   project: Project
-  featured?: boolean
+  /** The first rows load their cover right away; the rest wait until they near the viewport. */
+  eager?: boolean
   onOpen: (slug: string) => void
 }
 
@@ -22,20 +20,17 @@ function markIfLoaded(img: HTMLImageElement | null) {
 }
 
 /**
- * Paint-chip style card: the cover screenshot sits on the project's swatch color.
- * The title button's hit area is stretched over the whole card, so the card is
- * one click target while the heading stays a real heading.
+ * One project as a row: the cover fills a fixed frame on the left, the text sits beside it.
+ * Every row is the same size, so no project looks featured by accident. The title button's
+ * hit area is stretched over the whole row, so the row is one click target while the
+ * heading stays a real heading.
  */
-export function ProjectCard({ project, featured = false, onOpen }: ProjectCardProps) {
+export function ProjectCard({ project, eager = false, onOpen }: ProjectCardProps) {
   const [cover] = project.images
 
   return (
-    <article
-      className={styles.card}
-      data-featured={featured}
-      style={{ '--swatch': project.swatch } as CSSProperties}
-    >
-      <div className={styles.media} data-shape={cover ? imageShape(cover) : undefined}>
+    <article className={styles.row}>
+      <div className={styles.media}>
         {cover && (
           <img
             ref={markIfLoaded}
@@ -43,7 +38,7 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
             alt=""
             width={cover.width}
             height={cover.height}
-            loading={featured ? 'eager' : 'lazy'}
+            loading={eager ? 'eager' : 'lazy'}
             decoding="async"
             onLoad={(event) => markLoaded(event.currentTarget)}
           />
@@ -51,25 +46,24 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
       </div>
 
       <div className={styles.body}>
-        <div className={styles.eyebrow}>
-          <span className={styles.kind}>
-            <span>{project.kind}</span>
-            <span>{project.date}</span>
-          </span>
-          {project.status && <StatusBadge status={project.status} />}
-        </div>
+        <p className={styles.eyebrow}>
+          <span>{project.kind}</span>
+          <span>{project.date}</span>
+          {project.status === 'live' && (
+            <span className={styles.live}>
+              <span className={styles.dot} aria-hidden="true" />
+              Live
+            </span>
+          )}
+        </p>
         <h3 className={styles.title}>
           <button type="button" className={styles.open} onClick={() => onOpen(project.slug)} aria-haspopup="dialog">
             {project.title}
+            <Icon name="arrowUpRight" size={16} className={styles.arrow} />
           </button>
         </h3>
         <p className={styles.summary}>{project.summary}</p>
-        <div className={styles.meta}>
-          <span className={styles.tags}>{project.tags.join(', ')}</span>
-          <span className={styles.arrow} aria-hidden="true">
-            <Icon name="arrowUpRight" size={16} />
-          </span>
-        </div>
+        <p className={styles.tags}>{project.tags.join(', ')}</p>
       </div>
     </article>
   )

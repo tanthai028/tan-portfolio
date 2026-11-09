@@ -9,15 +9,6 @@ import styles from './Work.module.css'
 
 const HASH_PREFIX = '#project-'
 
-/**
- * The first card is wide. The rest sit two to a row, so with an odd number left over
- * the last card would be alone: make it wide too.
- */
-function isWide(index: number, count: number) {
-  const last = index === count - 1
-  return index === 0 || (last && (count - 1) % 2 === 1)
-}
-
 /** Projects are deep-linkable: `/#project-<slug>` opens that project's dialog. */
 export function Work() {
   const [openSlug, setOpenSlug] = useState<string | null>(null)
@@ -50,20 +41,12 @@ export function Work() {
       title="Projects"
       aside={<InfoTip label="projects">Open a project for screenshots and details.</InfoTip>}
     >
-      <ul className={styles.grid}>
-        {projects.map((project, i) => {
-          const wide = isWide(i, projects.length)
-          return (
-            <Reveal
-              as="li"
-              key={project.slug}
-              index={wide ? 0 : (i - 1) % 2}
-              className={wide ? styles.featured : undefined}
-            >
-              <ProjectCard project={project} featured={wide} onOpen={open} />
-            </Reveal>
-          )
-        })}
+      <ul className={styles.list}>
+        {projects.map((project, i) => (
+          <Reveal as="li" key={project.slug}>
+            <ProjectCard project={project} eager={i < 2} onOpen={open} />
+          </Reveal>
+        ))}
       </ul>
 
       <ProjectDialog project={selected} onClose={close} />
