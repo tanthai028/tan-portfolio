@@ -5,9 +5,12 @@ import { About } from '@/components/sections/About'
 import { Contact } from '@/components/sections/Contact'
 import { Hero } from '@/components/sections/Hero'
 import { Work } from '@/components/sections/Work'
+import { useAnchorGlide } from '@/hooks/useAnchorGlide'
 import styles from './App.module.css'
 
 export function App() {
+  useAnchorGlide()
+
   return (
     <>
       <a href="#main" className={styles.skipLink}>
