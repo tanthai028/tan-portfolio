@@ -74,6 +74,8 @@
   --color-accent-contrast: #fbfaf8;
   --color-focus: var(--swatch-slate);
   --color-live: #2fa35a;
+  /* GE Aerospace's navy. Its reversed (white) version is used in dark mode, where navy would vanish. */
+  --brand-ge: #00003d;
   --color-backdrop: rgb(43 40 37 / 0.35);
   --shadow-card: 0 1px 2px rgb(43 40 37 / 0.04), 0 8px 24px -12px rgb(43 40 37 / 0.18);
   --shadow-overlay: 0 24px 64px -16px rgb(43 40 37 / 0.35);
@@ -91,6 +93,7 @@
   --color-accent-contrast: #1c1a18;
   --color-focus: var(--swatch-krypton);
   --color-live: #4cc777;
+  --brand-ge: #f4f2ee;
   --color-backdrop: rgb(0 0 0 / 0.55);
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
   --shadow-overlay: 0 24px 64px -16px rgb(0 0 0 / 0.7);
