@@ -9,6 +9,9 @@
      so the next section never peeks in at the bottom. */
   min-height: calc(100lvh - var(--header-height));
   padding-block: var(--space-12) var(--space-16);
+  /* The extra lvh height sits behind the browser toolbars, so pad it out to keep the content
+     centered in the part of the screen you can see. */
+  padding-bottom: calc(var(--space-16) + 100lvh - 100svh);
 }
 
 .status {
