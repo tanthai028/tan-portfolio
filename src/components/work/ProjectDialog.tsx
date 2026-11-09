@@ -23,7 +23,14 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
       open={current !== null}
       onClose={onClose}
       title={project?.title ?? ''}
-      eyebrow={project ? `${project.kind} | ${project.date}` : undefined}
+      eyebrow={
+        project && (
+          <>
+            {`${project.kind} | ${project.date}`}
+            {project.status && <StatusBadge status={project.status} />}
+          </>
+        )
+      }
       footer={
         project && project.links.length > 0
           ? project.links.map((link, i) => (
@@ -37,7 +44,6 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
       {project && (
         <div className={styles.content} style={{ '--swatch': project.swatch } as CSSProperties}>
           {project.images.length > 0 && <Gallery images={project.images} />}
-          {project.status && <StatusBadge status={project.status} className={styles.status} />}
 
           <DetailBlock title="The problem">
             <p className={styles.lead}>{project.problem}</p>
@@ -66,13 +72,22 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
 }
 
 /**
- * Swipeable strip of screenshots; the next one peeks in, and arrows step through them.
+ * Swipeable strip of screenshots; the next one peeks in, and arrows on its edges step through them.
  * Selecting a screenshot opens it full size in a lightbox.
  */
 function Gallery({ images }: { images: ProjectImage[] }) {
   const stripRef = useRef<HTMLDivElement>(null)
   const [viewing, setViewing] = useState<number | null>(null)
+  const [edge, setEdge] = useState({ start: true, end: false })
   const multiple = images.length > 1
+
+  const updateEdge = () => {
+    const strip = stripRef.current
+    if (!strip) return
+    const start = strip.scrollLeft < 8
+    const end = strip.scrollLeft + strip.clientWidth > strip.scrollWidth - 8
+    if (start !== edge.start || end !== edge.end) setEdge({ start, end })
+  }
 
   const step = (direction: 1 | -1) => {
     const strip = stripRef.current
@@ -85,6 +100,7 @@ function Gallery({ images }: { images: ProjectImage[] }) {
         ref={stripRef}
         className={styles.gallery}
         data-single={!multiple}
+        onScroll={multiple ? updateEdge : undefined}
         aria-label={multiple ? `Screenshots, ${images.length} total` : undefined}
       >
         {images.map((image, i) => (
@@ -103,14 +119,26 @@ function Gallery({ images }: { images: ProjectImage[] }) {
         ))}
       </div>
       {multiple && (
-        <div className={styles.galleryNav}>
-          <button type="button" className={styles.navButton} onClick={() => step(-1)} aria-label="Previous screenshot">
+        <>
+          <button
+            type="button"
+            className={`${styles.navButton} ${styles.prev}`}
+            onClick={() => step(-1)}
+            disabled={edge.start}
+            aria-label="Previous screenshot"
+          >
             <Icon name="arrowLeft" size={16} />
           </button>
-          <button type="button" className={styles.navButton} onClick={() => step(1)} aria-label="Next screenshot">
+          <button
+            type="button"
+            className={`${styles.navButton} ${styles.next}`}
+            onClick={() => step(1)}
+            disabled={edge.end}
+            aria-label="Next screenshot"
+          >
             <Icon name="arrowRight" size={16} />
           </button>
-        </div>
+        </>
       )}
       <Lightbox images={images} index={viewing} onIndexChange={setViewing} onClose={() => setViewing(null)} />
     </div>

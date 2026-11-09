@@ -2,7 +2,7 @@
   --swatch-bg: var(--swatch);
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-8);
 }
 
 :root[data-theme='dark'] .content {
@@ -10,9 +10,7 @@
 }
 
 .galleryWrap {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  position: relative;
 }
 
 .gallery {
@@ -82,33 +80,39 @@
   box-shadow: var(--shadow-card);
 }
 
-.galleryNav {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-2);
-}
-
+/* Arrows sit on the strip's edges, centered on the screenshots, so they take no row of their own. */
 .navButton {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
   display: grid;
   place-items: center;
   width: 2.25rem;
   height: 2.25rem;
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-surface-raised) 90%, transparent);
   color: var(--color-text);
+  box-shadow: var(--shadow-card);
   transition:
-    background-color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out);
+    opacity var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
 }
 
 .navButton:hover {
-  background: var(--color-surface);
-  border-color: var(--color-text-muted);
+  background: var(--color-surface-raised);
 }
 
-.status {
-  align-self: flex-start;
-  margin-bottom: calc(-1 * var(--space-2));
+.navButton:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.prev {
+  left: calc(-1 * var(--space-3));
+}
+
+.next {
+  right: calc(-1 * var(--space-3));
 }
 
 .lead {
@@ -116,13 +120,13 @@
 }
 
 .blockTitle {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.8125rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .list {

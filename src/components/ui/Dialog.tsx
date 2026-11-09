@@ -7,7 +7,7 @@ interface DialogProps {
   onClose: () => void
   title: string
   /** Small label above the title. */
-  eyebrow?: string
+  eyebrow?: ReactNode
   children: ReactNode
   footer?: ReactNode
 }
