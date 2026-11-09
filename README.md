@@ -2,7 +2,7 @@
 
 My portfolio site: projects, experience, and résumé.
 
-**Live:** [tan-portfolio-taupe.vercel.app](https://tan-portfolio-taupe.vercel.app)
+**Live:** [tanhthai.com](https://tanhthai.com)
 
 ![Tan Thai portfolio preview](docs/github-social-preview.png)
 

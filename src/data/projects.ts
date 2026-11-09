@@ -129,7 +129,7 @@ export const projects: Project[] = [
       'Most of the 78 commits are phone UX fixes, like making every card fit on one screen without scrolling inside it.',
     ],
     stack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Supabase', 'Vitest'],
-    links: [{ label: 'Try it', href: 'https://cozyquest-nine.vercel.app' }],
+    links: [{ label: 'Try it', href: 'https://trailcards.vercel.app' }],
   },
   {
     slug: 'resumatch',
