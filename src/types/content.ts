@@ -77,7 +77,7 @@ export interface Project {
   problem: string
   approach: string[]
   outcome: string[]
-  /** Shown as "What I'd change": known gaps and planned work, in my words. */
+  /** Shown as "What I'd do next": known gaps and planned work, in my words. */
   nextSteps?: string[]
   stack: string[]
   links: Link[]

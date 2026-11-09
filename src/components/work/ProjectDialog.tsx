@@ -50,7 +50,7 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
           </DetailBlock>
           <DetailList title="What I did" items={project.approach} />
           <DetailList title="Outcome" items={project.outcome} />
-          {project.nextSteps && <DetailList title="What I'd change" items={project.nextSteps} />}
+          {project.nextSteps && <DetailList title="What I'd do next" items={project.nextSteps} />}
           {project.tryLocally && (
             <DetailBlock title="Try it locally">
               <ol className={styles.steps}>
