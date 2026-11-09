@@ -84,10 +84,14 @@
   white-space: nowrap;
 }
 
+/* Sized in em so it scales with the text, and nudged so its middle lines up with the middle of
+   the capital letters (cap height is about 0.71em in this font). */
 .inlineCompany svg {
   display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
   margin-inline-end: 0.3em;
-  vertical-align: -0.1em;
+  vertical-align: -0.045em;
   color: var(--color-text);
 }
 
