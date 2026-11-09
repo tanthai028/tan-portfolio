@@ -29,13 +29,12 @@ export function Hero() {
       </Reveal>
 
       <Reveal index={3} className={styles.actions}>
-        <Button href="#work">See projects</Button>
-        <Button href={profile.resumeUrl} variant="ghost" icon="download" download>
+        <Button href={profile.resumeUrl} icon="download" download>
           Résumé
         </Button>
       </Reveal>
 
-      <ScrollCue href="#work" />
+      <ScrollCue href="#work" label="Projects" />
     </section>
   )
 }

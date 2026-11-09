@@ -33,9 +33,10 @@
 }
 
 .track {
+  --track-height: 2.5rem;
   position: relative;
   width: 1px;
-  height: 2.5rem;
+  height: var(--track-height);
   background: var(--color-border);
   overflow: hidden;
 }
@@ -63,8 +64,15 @@
     opacity: 1;
   }
   100% {
-    translate: 0 2.5rem;
+    translate: 0 var(--track-height);
     opacity: 0;
+  }
+}
+
+/* Phones: a shorter line, so the cue doesn't crowd the bottom of a small screen. */
+@media (max-width: 40rem) {
+  .track {
+    --track-height: 1.5rem;
   }
 }
 
