@@ -7,9 +7,9 @@ const RETURN_RANGE_PX = 120
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2)
 
 /**
- * On desktop, one wheel scroll down from the intro glides to `targetId`'s heading, and one scroll up
- * from there glides back to the top. Everywhere else the page scrolls normally. Touch and keyboard
- * scrolling are untouched, and reduced-motion users get plain scrolling.
+ * One wheel scroll or one swipe down from the intro glides to `targetId`'s heading, and one scroll
+ * up from there glides back to the top. Everywhere else the page scrolls normally. Keyboard
+ * scrolling is untouched, and reduced-motion users get plain scrolling.
  */
 export function useIntroGlide(targetId: string) {
   useEffect(() => {
@@ -37,28 +37,82 @@ export function useIntroGlide(targetId: string) {
       requestAnimationFrame(frame)
     }
 
+    /** Where a scroll in this direction should glide to, or null to let the page scroll normally. */
+    const glideTarget = (down: boolean) => {
+      const to = targetTop()
+      if (to === null) return null
+      const y = window.scrollY
+      if (down && y < to * 0.5) return to
+      if (!down && y > 0 && Math.abs(y - to) < RETURN_RANGE_PX) return 0
+      return null
+    }
+
+    // A modal is open: the page is locked, and scrolling belongs to the modal.
+    const modalOpen = () => document.querySelector('dialog[open]') !== null
+
     const onWheel = (event: WheelEvent) => {
-      if (event.ctrlKey) return // pinch zoom
-      // A modal is open: the page is locked, and scrolling belongs to the modal.
-      if (document.querySelector('dialog[open]')) return
+      if (event.ctrlKey || modalOpen()) return // ctrlKey: pinch zoom
       if (animating) {
         event.preventDefault()
         return
       }
-      const to = targetTop()
+      const to = glideTarget(event.deltaY > 0)
       if (to === null) return
-      const y = window.scrollY
+      event.preventDefault()
+      glideTo(to)
+    }
 
-      if (event.deltaY > 0 && y < to * 0.5) {
-        event.preventDefault()
-        glideTo(to)
-      } else if (event.deltaY < 0 && y > 0 && Math.abs(y - to) < RETURN_RANGE_PX) {
-        event.preventDefault()
-        glideTo(0)
+    // Touch: the first move decides, because browsers commit to native scrolling on it. A swipe that
+    // matches a glide takes over the whole gesture, so native momentum doesn't fight the glide;
+    // anything else scrolls as usual.
+    let touch: { x: number; y: number; mode: 'pending' | 'glide' | 'native' } | null = null
+
+    const onTouchStart = (event: TouchEvent) => {
+      if (event.touches.length !== 1 || modalOpen()) {
+        touch = null
+        return
       }
+      const { clientX, clientY } = event.touches[0]
+      touch = { x: clientX, y: clientY, mode: animating ? 'glide' : 'pending' }
+    }
+
+    const onTouchMove = (event: TouchEvent) => {
+      if (!touch) return
+      if (touch.mode === 'glide') {
+        event.preventDefault()
+        return
+      }
+      if (touch.mode === 'native') return
+      const { clientX, clientY } = event.touches[0]
+      const dx = clientX - touch.x
+      const dy = clientY - touch.y
+      if (dx === 0 && dy === 0) return
+      // Finger moving up scrolls the page down.
+      const to = Math.abs(dy) > Math.abs(dx) ? glideTarget(dy < 0) : null
+      if (to === null) {
+        touch.mode = 'native'
+        return
+      }
+      touch.mode = 'glide'
+      event.preventDefault()
+      glideTo(to)
+    }
+
+    const onTouchEnd = () => {
+      touch = null
     }
 
     window.addEventListener('wheel', onWheel, { passive: false })
-    return () => window.removeEventListener('wheel', onWheel)
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchmove', onTouchMove, { passive: false })
+    window.addEventListener('touchend', onTouchEnd)
+    window.addEventListener('touchcancel', onTouchEnd)
+    return () => {
+      window.removeEventListener('wheel', onWheel)
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchmove', onTouchMove)
+      window.removeEventListener('touchend', onTouchEnd)
+      window.removeEventListener('touchcancel', onTouchEnd)
+    }
   }, [targetId])
 }
