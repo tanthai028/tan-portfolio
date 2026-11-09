@@ -3,6 +3,7 @@ import { education, experience } from '@/data/experience'
 import { profile } from '@/data/profile'
 import type { Experience, Term } from '@/types/content'
 import { Section } from '@/components/layout/Section'
+import { BrandIcon } from '@/components/ui/BrandIcon'
 import { Dialog } from '@/components/ui/Dialog'
 import { Icon } from '@/components/ui/Icon'
 import { InfoTip } from '@/components/ui/InfoTip'
@@ -97,6 +98,22 @@ function withTerms(text: string, terms: Term[]) {
   })
 }
 
+/** The small mark beside a role, so employers can be spotted at a glance. */
+function RoleLogo({ logo }: { logo: Experience['logo'] }) {
+  if (!logo) return null
+  return (
+    <span className={styles.logo} aria-hidden="true">
+      {logo === 'self' ? (
+        <img src={profile.photo.avatar} alt="" width={20} height={20} />
+      ) : logo === 'school' ? (
+        <Icon name="school" size={18} />
+      ) : (
+        <BrandIcon name={logo} size={16} />
+      )}
+    </span>
+  )
+}
+
 interface RoleListProps {
   title: string
   items: Experience[]
@@ -113,7 +130,10 @@ function RoleList({ title, items, onOpen }: RoleListProps) {
             <button type="button" className={styles.role} onClick={() => onOpen(item)} aria-haspopup="dialog">
               <span className={styles.period}>{item.period}</span>
               <span className={styles.roleName}>
-                {item.title}, <span className={styles.company}>{item.company}</span>
+                <RoleLogo logo={item.logo} />
+                <span>
+                  {item.title}, <span className={styles.company}>{item.company}</span>
+                </span>
               </span>
               <Icon name="arrowRight" size={16} className={styles.roleArrow} />
             </button>

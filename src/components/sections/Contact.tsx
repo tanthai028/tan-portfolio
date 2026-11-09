@@ -2,6 +2,7 @@ import { profile } from '@/data/profile'
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
 import { Section } from '@/components/layout/Section'
 import { Button } from '@/components/ui/Button'
+import { BrandIcon } from '@/components/ui/BrandIcon'
 import { Icon } from '@/components/ui/Icon'
 import { Reveal } from '@/components/ui/Reveal'
 import { Toast } from '@/components/ui/Toast'
@@ -32,7 +33,13 @@ export function Contact() {
 
         <div className={styles.links}>
           {profile.socials.map((link) => (
-            <Button key={link.href} href={link.href} variant="ghost" icon="arrowUpRight">
+            <Button
+              key={link.href}
+              href={link.href}
+              variant="ghost"
+              icon="arrowUpRight"
+              leading={<BrandIcon name={link.icon} size={16} />}
+            >
               {link.label}
             </Button>
           ))}

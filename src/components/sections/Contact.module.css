@@ -62,3 +62,15 @@
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+
+/* Phones: an even 2 by 2 grid instead of ragged rows. */
+@media (max-width: 30rem) {
+  .links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .links > a {
+    padding-inline: var(--space-3);
+  }
+}

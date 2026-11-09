@@ -5,6 +5,11 @@ export interface Link {
   href: string
 }
 
+/** A profile link shown with its brand mark. */
+export interface Social extends Link {
+  icon: 'github' | 'linkedin' | 'devpost'
+}
+
 export interface Profile {
   name: string
   role: string
@@ -28,7 +33,7 @@ export interface Profile {
   resumeUrl: string
   /** This site's repository. Leave unset while the repo is private. */
   sourceUrl?: string
-  socials: Link[]
+  socials: Social[]
   about: string[]
   /** Words in `about` that get a hover explanation, for readers who don't know them. */
   aboutTerms?: Term[]
@@ -89,6 +94,8 @@ export interface Experience {
   company: string
   title: string
   period: string
+  /** Mark beside the name: a company logo, the site avatar ("self"), or a graduation cap ("school"). */
+  logo?: 'ge' | 'chase' | 'self' | 'school'
   summary: string
   /** Shown in the dialog. */
   points: string[]

@@ -6,6 +6,7 @@ export const experience: Experience[] = [
     company: 'Self-directed',
     title: 'Independent projects',
     period: 'Since 2023',
+    logo: 'self',
     summary: 'Tools I build for myself, plus coursework in Python automation and AWS.',
     points: [
       'Built automated website monitors on GitHub Actions that detect changes and post digests to Discord.',
@@ -19,6 +20,7 @@ export const experience: Experience[] = [
     company: 'GE Aerospace',
     title: 'Software Engineer Intern',
     period: 'Summer 2023',
+    logo: 'ge',
     summary: 'On the DXL team in Tools & Simulation. I kept the team’s Jenkins jobs running and automated recurring work.',
     points: [
       'Owned diagnosis and resolution of failing Jenkins jobs, restoring internal CI/CD pipelines for the team.',
@@ -32,6 +34,7 @@ export const experience: Experience[] = [
     company: 'GE Aerospace',
     title: 'Systems Engineer Co-op',
     period: 'Fall 2022',
+    logo: 'ge',
     summary: 'Built Auto Test Batcher, an internal C#/.NET Windows app the Tools & Simulation team used to validate system behavior.',
     points: [
       'Developed and tested an internal C#/.NET Windows application used to validate system behavior.',
@@ -45,6 +48,7 @@ export const experience: Experience[] = [
     company: 'JPMorgan Chase & Co.',
     title: 'Full-Stack Software Engineer Intern',
     period: 'Summer 2022',
+    logo: 'chase',
     summary: 'Worked on DispVis, an internal web app for visualizing disputes data, as one of five engineers on an Agile team.',
     points: [
       'Built Java backend integrations using JDBC/SQL against AWS RDS.',
@@ -61,6 +65,7 @@ export const education: Experience[] = [
     company: 'University of South Florida',
     title: 'B.S. Computer Science',
     period: '2024',
+    logo: 'school',
     summary: 'Tampa, FL. Graduated May 2024 with a 3.46 GPA.',
     points: ['Best Financial Hack, Capital One Challenge at UF SwampHacks VII (314 participants).'],
     stack: [],

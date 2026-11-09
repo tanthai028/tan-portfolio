@@ -7,6 +7,8 @@ type Variant = 'primary' | 'ghost'
 interface BaseProps {
   variant?: Variant
   icon?: IconName
+  /** Shown before the label, e.g. a brand mark. */
+  leading?: ReactNode
   children: ReactNode
 }
 
@@ -15,10 +17,11 @@ type LinkProps = BaseProps & AnchorHTMLAttributes<HTMLAnchorElement> & { href: s
 
 /** Renders an <a> when given `href`, otherwise a <button>. External links open in a new tab. */
 export function Button(props: ButtonProps | LinkProps) {
-  const { variant = 'primary', icon, children, className = '', ...rest } = props
+  const { variant = 'primary', icon, leading, children, className = '', ...rest } = props
   const classes = `${styles.button} ${styles[variant]} ${className}`
   const content = (
     <>
+      {leading}
       <span>{children}</span>
       {icon && <Icon name={icon} size={16} className={styles.icon} />}
     </>

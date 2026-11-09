@@ -20,9 +20,9 @@ export const profile: Profile = {
   resumeUrl: '/Tan_Thai_Resume.pdf',
   sourceUrl: 'https://github.com/tanthai028/tan-portfolio',
   socials: [
-    { label: 'GitHub', href: 'https://github.com/tanthai028' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tanthai028' },
-    { label: 'Devpost', href: 'https://devpost.com/tanthai028' },
+    { label: 'GitHub', href: 'https://github.com/tanthai028', icon: 'github' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tanthai028', icon: 'linkedin' },
+    { label: 'Devpost', href: 'https://devpost.com/tanthai028', icon: 'devpost' },
   ],
   about: [
     'I like building software that saves someone time. Usually that means a Python backend, an internal tool, or a script that replaces a manual step.',
