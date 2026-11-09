@@ -2,6 +2,8 @@
   position: absolute;
   left: 50%;
   bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+  /* Stay above the browser toolbar while it's showing (the gap between the two viewport units). */
+  bottom: calc(var(--space-6) + env(safe-area-inset-bottom) + 100lvh - 100svh);
   translate: -50% 0;
   display: flex;
   flex-direction: column;

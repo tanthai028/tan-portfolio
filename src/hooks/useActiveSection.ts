@@ -8,7 +8,10 @@ export function useActiveSection(ids: readonly string[]) {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) setActive(entry.target.id)
+          const { id } = entry.target
+          if (entry.isIntersecting) setActive(id)
+          // The first section dropped below the middle: the reader is back up in the intro.
+          else if (id === ids[0] && entry.boundingClientRect.top > 0) setActive(null)
         }
       },
       { rootMargin: '-45% 0px -50% 0px' },

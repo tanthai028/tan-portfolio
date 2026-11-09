@@ -5,6 +5,9 @@
   justify-content: center;
   gap: var(--space-6);
   min-height: calc(100svh - var(--header-height));
+  /* Fill the whole screen, including the area behind a phone's floating browser toolbar,
+     so the next section never peeks in at the bottom. */
+  min-height: calc(100lvh - var(--header-height));
   padding-block: var(--space-12) var(--space-16);
 }
 
