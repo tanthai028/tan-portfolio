@@ -43,9 +43,6 @@ export function Contact() {
               {link.label}
             </Button>
           ))}
-          <Button href={profile.resumeUrl} variant="ghost" icon="download" download>
-            Résumé
-          </Button>
         </div>
       </Reveal>
 

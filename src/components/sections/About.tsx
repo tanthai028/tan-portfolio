@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { education, experience } from '@/data/experience'
 import { profile } from '@/data/profile'
-import type { Experience, Term } from '@/types/content'
+import type { CompanyLogo, Experience, Term } from '@/types/content'
 import { Section } from '@/components/layout/Section'
 import { BrandIcon } from '@/components/ui/BrandIcon'
 import { Dialog } from '@/components/ui/Dialog'
@@ -22,7 +22,7 @@ export function About() {
       <div className={styles.layout}>
         <Reveal className={styles.bio}>
           {profile.about.map((paragraph) => (
-            <p key={paragraph}>{withTerms(paragraph, profile.aboutTerms ?? [])}</p>
+            <p key={paragraph}>{withTerms(paragraph, profile.aboutTerms ?? [], profile.aboutLogos ?? [])}</p>
           ))}
         </Reveal>
 
@@ -51,6 +51,10 @@ export function About() {
       </div>
 
       <RoleList title="Experience" items={experience} onOpen={setRole} />
+      <a href={profile.resumeUrl} className={styles.resumeLink} target="_blank" rel="noreferrer">
+        View full résumé
+        <Icon name="arrowUpRight" size={16} />
+      </a>
       <RoleList title="Education" items={education} onOpen={setRole} />
 
       <Dialog
@@ -75,13 +79,30 @@ export function About() {
   )
 }
 
-/** Splits a paragraph so each glossary term becomes a hover tip. */
-function withTerms(text: string, terms: Term[]) {
-  if (terms.length === 0) return text
-  const escaped = terms.map((t) => t.term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+/** Puts a small company mark in front of each named company. */
+function withLogos(text: string, logos: CompanyLogo[]) {
+  if (logos.length === 0) return text
+  return text.split(new RegExp(`(${logos.map((l) => escapeRegExp(l.name)).join('|')})`)).map((part, i) => {
+    const company = logos.find((l) => l.name === part)
+    if (!company) return part
+    return (
+      <span key={i} className={styles.inlineCompany}>
+        <BrandIcon name={company.logo} size={16} />
+        {part}
+      </span>
+    )
+  })
+}
+
+/** Splits a paragraph so each glossary term becomes a hover tip, and company names get their mark. */
+function withTerms(text: string, terms: Term[], logos: CompanyLogo[]) {
+  if (terms.length === 0) return withLogos(text, logos)
+  const escaped = terms.map((t) => escapeRegExp(t.term))
   return text.split(new RegExp(`(${escaped.join('|')})`)).map((part, i) => {
     const term = terms.find((t) => t.term === part)
-    if (!term) return part
+    if (!term) return <Fragment key={i}>{withLogos(part, logos)}</Fragment>
     return (
       <InfoTip key={i} label={term.term} term={term.term}>
         {term.text}

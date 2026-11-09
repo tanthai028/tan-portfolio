@@ -80,6 +80,47 @@
   color: var(--color-text-muted);
 }
 
+.inlineCompany {
+  white-space: nowrap;
+}
+
+.inlineCompany svg {
+  display: inline-block;
+  margin-inline-end: 0.3em;
+  vertical-align: -0.1em;
+  color: var(--color-text);
+}
+
+.resumeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 500;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.resumeLink svg {
+  color: var(--color-text-muted);
+  transition: translate var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .resumeLink:hover {
+    color: var(--color-accent);
+    border-color: currentColor;
+  }
+
+  .resumeLink:hover svg {
+    color: currentColor;
+    translate: 2px -2px;
+  }
+}
+
 .roles {
   padding: 0;
   list-style: none;

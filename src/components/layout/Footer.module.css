@@ -20,6 +20,13 @@
   margin-bottom: -3rem;
 }
 
+/* Muted bar between the copyright and the date, like the project eyebrows. */
+.updated::before {
+  content: '|';
+  margin-inline: var(--space-2);
+  opacity: 0.5;
+}
+
 .links {
   display: flex;
   gap: var(--space-4);

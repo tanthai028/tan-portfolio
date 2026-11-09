@@ -29,6 +29,10 @@ export const profile: Profile = {
     'I interned at JPMorgan Chase and GE Aerospace. Most of my side projects started as something I wanted for myself, like the job board bot and the résumé matcher on this page.',
     'Outside of code I play Pickleball, I’m learning Tetris, and I spend too much time in Path of Exile.',
   ],
+  aboutLogos: [
+    { name: 'JPMorgan Chase', logo: 'chase' },
+    { name: 'GE Aerospace', logo: 'ge' },
+  ],
   aboutTerms: [
     {
       term: 'Pickleball',

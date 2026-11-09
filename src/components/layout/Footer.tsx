@@ -7,6 +7,7 @@ import { TagList } from '@/components/ui/Tag'
 import styles from './Footer.module.css'
 
 const YEAR = new Date().getFullYear()
+const UPDATED = new Date(__BUILT_AT__).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
 
 export function Footer() {
   const [open, setOpen] = useState(false)
@@ -18,6 +19,7 @@ export function Footer() {
       </div>
       <p>
         © {YEAR} {profile.name}
+        <span className={styles.updated}>Updated {UPDATED}</span>
       </p>
       <div className={styles.links}>
         <button type="button" className={styles.link} onClick={() => setOpen(true)} aria-haspopup="dialog">

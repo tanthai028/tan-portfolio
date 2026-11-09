@@ -29,7 +29,7 @@ export function Hero() {
       </Reveal>
 
       <Reveal index={3} className={styles.actions}>
-        <Button href={profile.resumeUrl} icon="download" download>
+        <Button href={profile.resumeUrl} icon="arrowUpRight" target="_blank" rel="noreferrer">
           Résumé
         </Button>
       </Reveal>

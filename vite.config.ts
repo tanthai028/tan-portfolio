@@ -22,6 +22,10 @@ function siteUrlPlugin(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), siteUrlPlugin()],
+  // Shown in the footer as "Updated <month year>". Vercel builds on every push, so this tracks the last change.
+  define: {
+    __BUILT_AT__: JSON.stringify(new Date().toISOString()),
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

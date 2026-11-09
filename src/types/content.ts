@@ -5,6 +5,12 @@ export interface Link {
   href: string
 }
 
+/** A company named in the bio, shown with its mark. */
+export interface CompanyLogo {
+  name: string
+  logo: 'ge' | 'chase'
+}
+
 /** A profile link shown with its brand mark. */
 export interface Social extends Link {
   icon: 'github' | 'linkedin' | 'devpost'
@@ -37,6 +43,8 @@ export interface Profile {
   about: string[]
   /** Words in `about` that get a hover explanation, for readers who don't know them. */
   aboutTerms?: Term[]
+  /** Company names in `about` that get their logo in front. */
+  aboutLogos?: CompanyLogo[]
   skills: SkillGroup[]
 }
 
