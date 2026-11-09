@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: 'Tan Thai',
   role: 'Software Engineer',
   tagline: 'I build software that takes boring, repetitive work off people’s hands.',
-  taglineDetail: 'CS graduate from USF (2024). Interned at JPMorgan Chase and GE Aerospace.',
+  taglineDetail: 'CS grad, USF 2024. Interned at JPMorgan Chase and GE Aerospace.',
   location: 'St. Petersburg, FL',
   photo: {
     avatar: '/tan-avatar.webp',
@@ -14,8 +14,8 @@ export const profile: Profile = {
   },
   availability: {
     open: true,
-    label: 'Open to entry-level roles in Tampa Bay or remote',
-    detail: 'Backend, internal tools, platform, automation or data engineering. Anywhere in Florida works too. U.S. citizen.',
+    label: 'Open to entry-level roles in Florida or remote',
+    detail: 'Backend, internal tools, platform, automation or data engineering. Tampa Bay preferred. U.S. citizen, no sponsorship needed.',
   },
   email: 'tanthai028@gmail.com',
   resumeUrl: '/Tan_Thai_Resume.pdf',
