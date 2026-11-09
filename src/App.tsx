@@ -19,8 +19,11 @@ export function App() {
         <Hero />
         <Work />
         <About />
-        <Contact />
-        <Footer />
+        {/* At least a screen tall, so a nav jump to Contact puts it at the top like the other sections. */}
+        <div className={styles.end}>
+          <Contact />
+          <Footer />
+        </div>
       </main>
       {/* Visitor counts in the Vercel dashboard. Cookie-free; a no-op outside Vercel. */}
       <Analytics />

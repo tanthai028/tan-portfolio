@@ -4,6 +4,19 @@
   padding-inline: var(--gutter);
 }
 
+/* Measured from Contact's top margin: the margin, plus a screen minus the header and the gap above
+   the heading after a jump. The footer stays at the bottom. */
+.end {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--space-section) + 100svh - var(--header-height) - var(--space-8));
+  min-height: calc(var(--space-section) + 100lvh - var(--header-height) - var(--space-8));
+}
+
+.end > section {
+  flex: 1;
+}
+
 .skipLink {
   position: fixed;
   top: var(--space-2);
