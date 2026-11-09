@@ -115,12 +115,6 @@
   font-size: var(--text-lg);
 }
 
-.codeNote {
-  align-self: center;
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
-}
-
 .blockTitle {
   margin-bottom: var(--space-2);
   font-family: var(--font-mono);

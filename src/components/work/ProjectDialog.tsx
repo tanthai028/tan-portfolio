@@ -25,16 +25,13 @@ export function ProjectDialog({ project: current, onClose }: ProjectDialogProps)
       title={project?.title ?? ''}
       eyebrow={project ? `${project.kind} | ${project.date}` : undefined}
       footer={
-        project && (project.links.length > 0 || project.codeNote) ? (
-          <>
-            {project.links.map((link, i) => (
+        project && project.links.length > 0
+          ? project.links.map((link, i) => (
               <Button key={link.href} href={link.href} variant={i === 0 ? 'primary' : 'ghost'} icon="arrowUpRight">
                 {link.label}
               </Button>
-            ))}
-            {project.codeNote && <p className={styles.codeNote}>{project.codeNote}</p>}
-          </>
-        ) : undefined
+            ))
+          : undefined
       }
     >
       {project && (

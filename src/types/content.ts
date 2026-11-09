@@ -83,8 +83,6 @@ export interface Project {
   nextSteps?: string[]
   stack: string[]
   links: Link[]
-  /** Shown beside the links when the code can't be linked, e.g. a private repo. */
-  codeNote?: string
   /** Setup steps for projects with no hosted version. Wrap commands in `backticks`. */
   tryLocally?: string[]
 }
