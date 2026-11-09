@@ -3,8 +3,7 @@ import type { Profile } from '@/types/content'
 export const profile: Profile = {
   name: 'Tan Thai',
   role: 'Software Engineer',
-  // Placeholder until Tan writes this line in their own words.
-  tagline: 'Software engineer focused on backend services and internal tools.',
+  tagline: 'I build software that takes boring, repetitive work off people’s hands.',
   taglineDetail: 'CS graduate from USF (2024). Interned at JPMorgan Chase and GE Aerospace.',
   location: 'St. Petersburg, FL',
   photo: {
