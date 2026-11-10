@@ -69,9 +69,17 @@
   font-size: var(--text-sm);
 }
 
-.subTitle {
+/* Heading line above each list, with an optional link at the right end. */
+.listHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
   margin-top: var(--space-16);
   margin-bottom: var(--space-4);
+}
+
+.subTitle {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 500;
@@ -99,14 +107,11 @@
 .resumeLink {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  margin-top: var(--space-6);
-  padding-bottom: 2px;
-  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-1);
+  font-size: var(--text-sm);
   font-weight: 500;
-  transition:
-    color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out);
+  color: var(--color-text-muted);
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .resumeLink svg {
@@ -116,8 +121,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .resumeLink:hover {
-    color: var(--color-accent);
-    border-color: currentColor;
+    color: var(--color-text);
   }
 
   .resumeLink:hover svg {

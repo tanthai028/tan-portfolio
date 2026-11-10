@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, type ReactNode } from 'react'
 import { education, experience } from '@/data/experience'
 import { profile } from '@/data/profile'
 import type { CompanyLogo, Experience, Term } from '@/types/content'
@@ -50,11 +50,17 @@ export function About() {
         </Reveal>
       </div>
 
-      <RoleList title="Experience" items={experience} onOpen={setRole} />
-      <a href={profile.resumeUrl} className={styles.resumeLink} target="_blank" rel="noreferrer">
-        View full résumé
-        <Icon name="arrowUpRight" size={16} />
-      </a>
+      <RoleList
+        title="Experience"
+        items={experience}
+        onOpen={setRole}
+        action={
+          <a href={profile.resumeUrl} className={styles.resumeLink} target="_blank" rel="noreferrer">
+            View full résumé
+            <Icon name="arrowUpRight" size={14} />
+          </a>
+        }
+      />
       <RoleList title="Education" items={education} onOpen={setRole} />
 
       <Dialog
@@ -139,12 +145,17 @@ interface RoleListProps {
   title: string
   items: Experience[]
   onOpen: (item: Experience) => void
+  /** Shown at the right end of the heading line. */
+  action?: ReactNode
 }
 
-function RoleList({ title, items, onOpen }: RoleListProps) {
+function RoleList({ title, items, onOpen, action }: RoleListProps) {
   return (
     <>
-      <h3 className={styles.subTitle}>{title}</h3>
+      <div className={styles.listHead}>
+        <h3 className={styles.subTitle}>{title}</h3>
+        {action}
+      </div>
       <ul className={styles.roles}>
         {items.map((item, i) => (
           <Reveal as="li" key={`${item.company}-${item.period}`} index={i}>
