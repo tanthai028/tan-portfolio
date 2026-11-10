@@ -27,7 +27,12 @@ export function Dialog({ open, onClose, title, eyebrow, children, footer }: Dial
     const dialog = ref.current
     if (!dialog) return
     if (open && !dialog.open) dialog.showModal()
-    if (!open && dialog.open) dialog.close()
+    if (!open && dialog.open) {
+      // Close anything stacked inside first (the image viewer). Left open, it would stay modal
+      // while hidden with its parent, and the whole page would stop responding.
+      dialog.querySelectorAll('dialog[open]').forEach((nested) => (nested as HTMLDialogElement).close())
+      dialog.close()
+    }
   }, [open])
 
   return (
@@ -135,6 +140,8 @@ function useSwipeToClose(
     const onStart = (event: TouchEvent) => {
       if (state === 'settling') return
       if (!matchMedia(SHEET_QUERY).matches || event.touches.length !== 1) return
+      // Touches in a dialog opened on top of this one (the image viewer) belong to that dialog.
+      if ((event.target as Element).closest('dialog') !== dialog) return
       const inBody = body.contains(event.target as Node)
       if (inBody && body.scrollTop > 0) return
       const touch = event.touches[0]
