@@ -40,12 +40,12 @@ Text lives in typed data files, not in components.
 
 Types are in `src/types/content.ts`. Static files are in `public/`:
 
-- `Tan_Thai_Resume.pdf` is the résumé download.
+- `Tan_Thai_Resume.pdf` is the résumé. It opens in a new tab.
 - `tan-avatar.webp` and `tan-photo.webp` are the header avatar and the About photo.
 - `projects/*.webp` are project screenshots. A project's first image is its card cover, and every image shows in its pop-up, where it opens full size on click.
-- `og.png` is the 1200×630 link preview.
+- `og.png` is the 1200×630 link preview, and `docs/github-social-preview.png` is the 1280×640 preview for the GitHub repo.
 
-Covers are laid out by shape, so a new screenshot needs only its `width` and `height` in the data file. Wide desktop shots fill the frame, while square popups and tall phone screens get narrower widths (`src/components/work/imageShape.ts`).
+Every cover fills the same frame, anchored to the top of the screenshot, so a new screenshot needs only its `width` and `height` in the data file.
 
 ## Structure
 
